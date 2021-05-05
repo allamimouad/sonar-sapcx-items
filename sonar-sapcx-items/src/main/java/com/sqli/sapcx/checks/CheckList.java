@@ -29,7 +29,8 @@ public class CheckList {
 
   public static List<Class<?>> getCheckClasses() {
     return Arrays.asList(
-      ParsingErrorCheck.class
+      ParsingErrorCheck.class,
+      DeploymentTypeCodeCheck.class
     );
   }
 
