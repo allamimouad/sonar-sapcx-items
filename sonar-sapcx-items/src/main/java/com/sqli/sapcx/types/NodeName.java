@@ -1,5 +1,8 @@
 package com.sqli.sapcx.types;
 
+
+import org.w3c.dom.Node;
+
 public enum NodeName {
 
     RELATIONS("relations"),
@@ -9,12 +12,25 @@ public enum NodeName {
     TYPEGROUP("typegroup"),
     ITEMTYPE("itemtype"),
     SOURCEELEMENT("sourceElement"),
-    TARGETELEMENT("targetElement");
+    TARGETELEMENT("targetElement"),
+    ATTRIBUTES("attributes"),
+    ATTRIBUTE("attribute"),
+    PERSISTENCE("persistence");
 
-    public String name;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
 
     NodeName(String name) {
         this.name = name;
+    }
+
+    public boolean isTypeOf(Node node){
+
+        return this.getName().equals(node.getNodeName());
+
     }
 
 }

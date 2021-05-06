@@ -1,5 +1,6 @@
 package com.sqli.sapcx.checks;
 
+import com.sqli.sapcx.Utils;
 import com.sqli.sapcx.types.AttributeName;
 import com.sqli.sapcx.types.NodeName;
 import org.sonar.check.Rule;
@@ -19,54 +20,32 @@ public class DeploymentTypeCodeCheck extends SonarXmlCheck {
 
     public static final String RULE_KEY = "DeploymentTypeCodeCheck_RULE_KEY";
 
-    public final String itemTypes = NodeName.ITEMTYPES.name;
-    public final String relations = NodeName.RELATIONS.name;
-
-    public final String typegroup = NodeName.TYPEGROUP.name;
-
-    public final String deployment = NodeName.DEPLOYMENT.name;
-    public final String targetAttributeName = AttributeName.TYPECODE.name;
-
-    public final int recomendedTypeCode = 10000;
+    public final int MINIMUM_TYPE_CODE  = 10000;
 
     @Override
     public void scanFile(XmlFile xmlFile) {
-        Document document = xmlFile.getDocument();
-        // contain only one node witch is the root node
-        List<Node> documentNodeList = XmlFile.asList(document.getChildNodes());
 
-        // get only root Childs Nodes as a List
-        // comment are also considered as Node (instanceof Comment) and back to line (instanceof Text)
-        List<Node> rootChildNodes = XmlFile.asList(
-                documentNodeList.stream()
-                        .filter(node -> node instanceof Element)
-                        .collect(Collectors.toList())
-                        .get(0)
-                        .getChildNodes()
-        );
+        // get root children Nodes as a List
+        List<Node> rootChildNodes = Utils.getRootChildrenNodes(xmlFile);
 
         rootChildNodes.stream()
-                .filter(node -> node instanceof Element
-                        && (node.getNodeName().equals(itemTypes) || node.getNodeName().equals(relations))
-                )
-                .map(element -> (Element) element)
+                .filter(node -> node instanceof Element )
+                .filter(node -> NodeName.ITEMTYPES.isTypeOf(node) || NodeName.RELATIONS.isTypeOf(node))
                 .flatMap(element -> XmlFile.children(element).stream())
-                .flatMap(element -> {
-                    if (element.getNodeName().equals(typegroup)) {
-                        return (XmlFile.children(element)).stream();
-                    } else {
-                        return Stream.of(element);
-                    }
-                })
+                .flatMap(Utils::flatMapTypeGroupToItemType) //relation nodes are also included here
                 .filter(node -> node instanceof Element)
                 .map(element -> (Element) element)
-                .filter(element -> element.getElementsByTagName(deployment).getLength() != 0)
-                .map(element -> (Element) element.getElementsByTagName(deployment).item(0))
-                .filter(element -> Integer.parseInt(element.getAttributeNode(targetAttributeName).getValue()) < recomendedTypeCode)
+                .filter(Utils::haveDeploymentNode)
+                .map(element -> Utils.getFirstNodeOccurrenceByName(element,NodeName.DEPLOYMENT.getName()))
+                .filter(this::haveRecomendedTypeCode)
                 .forEach(deploymentNode -> reportIssue(deploymentNode, "Deployment type codes must be greater than 10000."));
-
 
     }
 
-}
+    // this method verify if deploymentNode have the recommended typeCode
+    private boolean haveRecomendedTypeCode (Element deploymentNode){
+        return Integer.parseInt(deploymentNode.getAttributeNode(AttributeName.TYPECODE.getName()).getValue()) < MINIMUM_TYPE_CODE;
+    }
 
+
+}

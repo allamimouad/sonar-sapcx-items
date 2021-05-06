@@ -10,7 +10,7 @@
     "hybris",
     "convention"
   ],
-  "defaultSeverity": "Major",
+  "defaultSeverity": "Blocker",
   "ruleSpecification": "RSPEC-DeploymentTypeCodeCheck_RULE_KEY",
   "sqKey": "DeploymentTypeCodeCheck_RULE_KEY",
   "scope": "All"
