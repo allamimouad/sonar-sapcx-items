@@ -20,15 +20,27 @@
 package com.sqli.sapcx;
 
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 import org.sonarsource.analyzer.commons.BuiltInQualityProfileJsonLoader;
 
 public final class SapCxItemsSQLIWayProfile implements BuiltInQualityProfilesDefinition {
 
-  @Override
-  public void define(Context context) {
-    NewBuiltInQualityProfile sapCxWay = context.createBuiltInQualityProfile(SapCxItems.SQLI_WAY_PROFILE_NAME, SapCxItems.KEY);
-    BuiltInQualityProfileJsonLoader.load(sapCxWay, SapCxItems.REPOSITORY_KEY, SapCxItems.SQLI_WAY_PATH);
-    sapCxWay.done();
-  }
+    private static final Logger LOG = Loggers.get(SapCxItemsSensor.class);
+
+    @Override
+    public void define(Context context) {
+        NewBuiltInQualityProfile sapCxWay = context.createBuiltInQualityProfile(SapCxItemsPreperties.SQLI_WAY_PROFILE_NAME, SapCxItemsPreperties.XML_KEY);
+
+        // Initiate the profile with the latest XML Sonar way rules to the profile
+        BuiltInQualityProfile sonarWayProfile = context.profile(SapCxItemsPreperties.XML_KEY, SapCxItemsPreperties.XML_SONAR_WAY);
+        sonarWayProfile.rules()
+                .forEach(rule -> sapCxWay.activateRule(rule.repoKey(), rule.ruleKey()));
+
+        // Load additional rules related to SAP CX Items best practices
+        BuiltInQualityProfileJsonLoader.load(sapCxWay, SapCxItemsPreperties.REPOSITORY_KEY, SapCxItemsPreperties.SQLI_WAY_PATH);
+
+        sapCxWay.done();
+    }
 
 }

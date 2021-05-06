@@ -24,14 +24,13 @@ import java.util.List;
 
 public class CheckList {
 
-  private CheckList() {
-  }
+    private CheckList() {
+    }
 
-  public static List<Class<?>> getCheckClasses() {
-    return Arrays.asList(
-      ParsingErrorCheck.class,
-      DeploymentTypeCodeCheck.class
-    );
-  }
+    public static List<Class<?>> getCheckClasses() {
+        return Arrays.asList(
+                DeploymentTypeCodeCheck.class
+        );
+    }
 
 }

@@ -19,29 +19,26 @@
  */
 package com.sqli.sapcx;
 
-import org.sonarsource.analyzer.commons.xml.XmlFile;
-import org.sonarsource.analyzer.commons.xml.XmlTextRange;
-import org.w3c.dom.Element;
+/**
+ * This class defines the XML language.
+ *
+ * @author Matthijs Galesloot
+ */
+public class SapCxItemsPreperties {
 
-public class Utils {
-  private Utils() {
-    // utility class, forbidden constructor
-  }
+    /**
+     * All the valid items.xml files suffixes.
+     */
+    public static final String SAPCX_ITEMS_SUFFIXES = "**/*-items.xml";
 
-  public static String[] splitLines(String text) {
-    return text.split("(\r)?\n|\r", -1);
-  }
+    public static final String XML_KEY = "xml";
 
-  /**
-   * Check if element is self closing: &lt;foo ... /&gt;
-   *
-   * @param element element to check
-   * @return true if element is self closing, false otherwise
-   */
-  public static boolean isSelfClosing(Element element) {
-    XmlTextRange startLocation = XmlFile.startLocation(element);
-    XmlTextRange endLocation = XmlFile.endLocation(element);
-    return startLocation.getEndLine() == endLocation.getEndLine()
-      && startLocation.getEndColumn() == endLocation.getEndColumn();
-  }
+    public static final String ITEMS_RESOURCE_PATH = "com/sqli/l10n/sapcx/rules/items";
+    public static final String REPOSITORY_KEY = "sapcx-items";
+    public static final String REPOSITORY_NAME = "SAPCX Items Analyzer";
+
+    public static final String SQLI_WAY_PROFILE_NAME = "Sonar way with SAP CX Items rules";
+    public static final String SQLI_WAY_PATH = "com/sqli/l10n/sapcx/rules/items/SQLI_way_profile.json";
+
+    public static final String XML_SONAR_WAY = "Sonar way";
 }

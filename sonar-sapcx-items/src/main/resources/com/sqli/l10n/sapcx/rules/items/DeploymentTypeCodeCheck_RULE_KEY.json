@@ -12,6 +12,6 @@
   ],
   "defaultSeverity": "Major",
   "ruleSpecification": "RSPEC-DeploymentTypeCodeCheck_RULE_KEY",
-  "sqKey": "sqkey_DeploymentTypeCodeCheck_RULE_KEY",
+  "sqKey": "DeploymentTypeCodeCheck_RULE_KEY",
   "scope": "All"
 }

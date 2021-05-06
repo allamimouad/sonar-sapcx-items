@@ -27,7 +27,7 @@ public class DeploymentTypeCodeCheck extends SonarXmlCheck {
     public final String deployment = NodeName.DEPLOYMENT.name;
     public final String targetAttributeName = AttributeName.TYPECODE.name;
 
-    public final int recomendedTypeCode  = 10000;
+    public final int recomendedTypeCode = 10000;
 
     @Override
     public void scanFile(XmlFile xmlFile) {
@@ -61,7 +61,7 @@ public class DeploymentTypeCodeCheck extends SonarXmlCheck {
                 .filter(node -> node instanceof Element)
                 .map(element -> (Element) element)
                 .filter(element -> element.getElementsByTagName(deployment).getLength() != 0)
-                .map(element -> (Element)element.getElementsByTagName(deployment).item(0))
+                .map(element -> (Element) element.getElementsByTagName(deployment).item(0))
                 .filter(element -> Integer.parseInt(element.getAttributeNode(targetAttributeName).getValue()) < recomendedTypeCode)
                 .forEach(deploymentNode -> reportIssue(deploymentNode, "Deployment type codes must be greater than 10000."));
 

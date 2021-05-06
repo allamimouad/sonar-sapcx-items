@@ -25,15 +25,11 @@ import org.sonarsource.analyzer.commons.RuleMetadataLoader;
 
 public final class SapCxItemsRulesDefinition implements RulesDefinition {
 
-  @Override
-  public void define(Context context) {
-    NewRepository repository = context.createRepository(SapCxItems.REPOSITORY_KEY, SapCxItems.KEY).setName(SapCxItems.REPOSITORY_NAME);
-
-    RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(SapCxItems.ITEMS_RESOURCE_PATH, SapCxItems.SQLI_WAY_PATH);
-
-    // add the new checks
-    ruleMetadataLoader.addRulesByAnnotatedClass(repository, CheckList.getCheckClasses());
-
-    repository.done();
-  }
+    @Override
+    public void define(Context context) {
+        NewRepository repository = context.createRepository(SapCxItemsPreperties.REPOSITORY_KEY, SapCxItemsPreperties.XML_KEY).setName(SapCxItemsPreperties.REPOSITORY_NAME);
+        RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(SapCxItemsPreperties.ITEMS_RESOURCE_PATH, SapCxItemsPreperties.SQLI_WAY_PATH);
+        ruleMetadataLoader.addRulesByAnnotatedClass(repository, CheckList.getCheckClasses());
+        repository.done();
+    }
 }
