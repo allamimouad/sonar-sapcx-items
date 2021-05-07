@@ -1,6 +1,6 @@
 {
-  "name": "SQLI Way",
+  "name": "Sonar way with SAP CX Items rules",
   "ruleKeys": [
-
+    "DeploymentTypeCodeCheck_RULE_KEY"
   ]
 }

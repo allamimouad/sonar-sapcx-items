@@ -1,0 +1,17 @@
+{
+  "title": "Deployment type codes must be greater than 10000.",
+  "type": "BUG",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Blocker",
+  "ruleSpecification": "RSPEC-DeploymentTypeCodeCheck_RULE_KEY",
+  "sqKey": "DeploymentTypeCodeCheck_RULE_KEY",
+  "scope": "All"
+}

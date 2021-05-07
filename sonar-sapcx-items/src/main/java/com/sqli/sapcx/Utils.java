@@ -1,47 +1,77 @@
-/*
- * SonarQube XML Plugin
- * Copyright (C) 2010-2021 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+
 package com.sqli.sapcx;
 
+import com.sqli.sapcx.types.NodeName;
 import org.sonarsource.analyzer.commons.xml.XmlFile;
 import org.sonarsource.analyzer.commons.xml.XmlTextRange;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Utils {
-  private Utils() {
-    // utility class, forbidden constructor
-  }
+    private Utils() {
+        // utility class, forbidden constructor
+    }
 
-  public static String[] splitLines(String text) {
-    return text.split("(\r)?\n|\r", -1);
-  }
+    public static String[] splitLines(String text) {
+        return text.split("(\r)?\n|\r", -1);
+    }
 
-  /**
-   * Check if element is self closing: &lt;foo ... /&gt;
-   *
-   * @param element element to check
-   * @return true if element is self closing, false otherwise
-   */
-  public static boolean isSelfClosing(Element element) {
-    XmlTextRange startLocation = XmlFile.startLocation(element);
-    XmlTextRange endLocation = XmlFile.endLocation(element);
-    return startLocation.getEndLine() == endLocation.getEndLine()
-      && startLocation.getEndColumn() == endLocation.getEndColumn();
-  }
+    /**
+     * Check if element is self closing: &lt;foo ... /&gt;
+     *
+     * @param element element to check
+     * @return true if element is self closing, false otherwise
+     */
+    public static boolean isSelfClosing(Element element) {
+        XmlTextRange startLocation = XmlFile.startLocation(element);
+        XmlTextRange endLocation = XmlFile.endLocation(element);
+        return startLocation.getEndLine() == endLocation.getEndLine()
+                && startLocation.getEndColumn() == endLocation.getEndColumn();
+    }
+
+    //this method make itemtype and typegroupe children(itemtype)
+    // at the same stream level
+    public static Stream<Node> flatMapTypeGroupToItemType(Node node){
+
+        if (NodeName.TYPEGROUP.isTypeOf(node)) {
+            return (XmlFile.children(node)).stream();
+        } else {
+            return Stream.of(node);
+        }
+
+    }
+
+    public static boolean haveDeploymentNode (Element element){
+        return element.getElementsByTagName(NodeName.DEPLOYMENT.getName()).getLength() != 0;
+    }
+
+    public static Element getFirstNodeOccurrenceByName (Element element,String name){
+        return (Element)element.getElementsByTagName(name).item(0);
+    }
+
+    // this method return a List of the root Node
+    public static List<Node> getRootChildrenNodes(XmlFile xmlFile){
+
+        Document document = xmlFile.getDocument();
+        // contain only one node witch is the root node
+        List<Node> documentNodeList = XmlFile.asList(document.getChildNodes());
+
+        // get only root children Nodes as a List
+        // comment are also considered as Node (instanceof Comment) and back to line (instanceof Text)
+        return XmlFile.asList(
+                documentNodeList.stream()
+                        .filter(node -> node instanceof Element)
+                        .collect(Collectors.toList())
+                        .get(0)
+                        .getChildNodes()
+        );
+
+    }
+
+
 }

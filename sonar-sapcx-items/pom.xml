@@ -114,10 +114,8 @@
         <extensions>true</extensions>
         <configuration>
           <pluginName>SAP CX items.xml Code Quality</pluginName>
-          <pluginClass>com.sqli.sapcx.ItemsXmlPlugin</pluginClass>
+          <pluginClass>com.sqli.sapcx.SapCxItemsPlugin</pluginClass>
           <skipDependenciesPackaging>true</skipDependenciesPackaging>
-          <sonarLintSupported>true</sonarLintSupported>
-          <sonarQubeMinVersion>${sonar.minVersion}</sonarQubeMinVersion>
         </configuration>
       </plugin>
 

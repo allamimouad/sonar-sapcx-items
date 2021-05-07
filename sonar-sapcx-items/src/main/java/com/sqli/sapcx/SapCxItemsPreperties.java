@@ -19,29 +19,26 @@
  */
 package com.sqli.sapcx;
 
-import org.sonar.api.Plugin;
-import org.sonar.api.config.PropertyDefinition;
-import org.sonar.api.resources.Qualifiers;
+/**
+ * This class defines the XML language.
+ *
+ * @author Matthijs Galesloot
+ */
+public class SapCxItemsPreperties {
 
-public final class ItemsXmlPlugin implements Plugin {
+    /**
+     * All the valid items.xml files suffixes.
+     */
+    public static final String SAPCX_ITEMS_SUFFIXES = "**/*-items.xml";
 
-  public static final String FILE_SUFFIXES_KEY = "sonar.sapcx.items.file.suffixes";
+    public static final String XML_KEY = "xml";
 
-  @Override
-  public void define(Context context) {
-    context.addExtensions(
-      PropertyDefinition.builder(ItemsXmlPlugin.FILE_SUFFIXES_KEY)
-        .name("File suffixes")
-        .description("Comma-separated list of suffixes for files to analyze.")
-        .defaultValue("items.xml")
-        .multiValues(true)
-        .category("XML")
-        .onQualifiers(Qualifiers.PROJECT)
-        .build(),
-      SapCxItems.class,
-      SapCxItemsRulesDefinition.class,
-      SapCxItemsSQLIWayProfile.class,
-      XmlSensor.class);
-  }
+    public static final String ITEMS_RESOURCE_PATH = "com/sqli/l10n/sapcx/rules/items";
+    public static final String REPOSITORY_KEY = "sapcx-items";
+    public static final String REPOSITORY_NAME = "SAPCX Items Analyzer";
 
+    public static final String SQLI_WAY_PROFILE_NAME = "Sonar way with SAP CX Items rules";
+    public static final String SQLI_WAY_PATH = "com/sqli/l10n/sapcx/rules/items/SQLI_way_profile.json";
+
+    public static final String XML_SONAR_WAY = "Sonar way";
 }

@@ -17,5 +17,18 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-@javax.annotation.ParametersAreNonnullByDefault
 package com.sqli.sapcx;
+
+import org.sonar.api.Plugin;
+
+public final class SapCxItemsPlugin implements Plugin {
+
+    @Override
+    public void define(Context context) {
+        context.addExtensions(
+                SapCxItemsRulesDefinition.class,
+                SapCxItemsSQLIWayProfile.class,
+                SapCxItemsSensor.class);
+    }
+
+}
