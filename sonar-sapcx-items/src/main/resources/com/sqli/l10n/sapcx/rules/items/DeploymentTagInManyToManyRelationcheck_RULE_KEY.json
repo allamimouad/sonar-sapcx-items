@@ -1,0 +1,17 @@
+{
+  "title": "Define a deployment table for all many-to-many relations.",
+  "type": "BUG",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "2min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Major",
+  "ruleSpecification": "RSPEC-DeploymentTagInManyToManyRelationcheck_RULE_KEY",
+  "sqKey": "DeploymentTagInManyToManyRelationcheck_RULE_KEY",
+  "scope": "All"
+}

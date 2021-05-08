@@ -1,6 +1,7 @@
 
 package com.sqli.sapcx;
 
+import com.sqli.sapcx.types.AttributeName;
 import com.sqli.sapcx.types.NodeName;
 import org.sonarsource.analyzer.commons.xml.XmlFile;
 import org.sonarsource.analyzer.commons.xml.XmlTextRange;
@@ -70,6 +71,22 @@ public class Utils {
                         .get(0)
                         .getChildNodes()
         );
+
+    }
+
+    // this method verify if a relation node is Many to Many
+    public static boolean isManyToManyRelation(Element element){
+
+        Element sourceElementNode = (Element)element.getElementsByTagName(NodeName.SOURCEELEMENT.getName()).item(0);
+        Element targetElementNode = (Element)element.getElementsByTagName(NodeName.TARGETELEMENT.getName()).item(0);
+
+        if (sourceElementNode == null || targetElementNode == null ) {
+            return false;
+        }
+        else{
+            return sourceElementNode.getAttribute(AttributeName.CARDINALITY.getName()).toLowerCase().equals("many")
+                    && targetElementNode.getAttribute(AttributeName.CARDINALITY.getName()).toLowerCase().equals("many");
+        }
 
     }
 
