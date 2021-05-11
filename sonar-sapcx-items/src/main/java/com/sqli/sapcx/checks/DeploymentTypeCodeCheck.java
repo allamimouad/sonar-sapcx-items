@@ -10,7 +10,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -39,13 +42,11 @@ public class DeploymentTypeCodeCheck extends SonarXmlCheck {
                 .map(element -> Utils.getFirstNodeOccurrenceByName(element,NodeName.DEPLOYMENT.getName()))
                 .filter(this::haveRecomendedTypeCode)
                 .forEach(deploymentNode -> reportIssue(deploymentNode, "Deployment type codes must be greater than 10000."));
-
     }
 
     // this method verify if deploymentNode have the recommended typeCode
     private boolean haveRecomendedTypeCode (Element deploymentNode){
         return Integer.parseInt(deploymentNode.getAttributeNode(AttributeName.TYPECODE.getName()).getValue()) < MINIMUM_TYPE_CODE;
     }
-
 
 }
