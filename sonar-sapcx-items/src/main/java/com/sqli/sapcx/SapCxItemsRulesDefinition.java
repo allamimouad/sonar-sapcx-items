@@ -9,7 +9,7 @@ public final class SapCxItemsRulesDefinition implements RulesDefinition {
     @Override
     public void define(Context context) {
         NewRepository repository = context.createRepository(SapCxItemsPreperties.REPOSITORY_KEY, SapCxItemsPreperties.XML_KEY).setName(SapCxItemsPreperties.REPOSITORY_NAME);
-        RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(SapCxItemsPreperties.ITEMS_RESOURCE_PATH, SapCxItemsPreperties.SQLI_WAY_PATH);
+        RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(SapCxItemsPreperties.ITEMS_RESOURCE_PATH, SapCxItemsPreperties.SONAR_WAY_SAPCX_ITEMS_PATH);
         ruleMetadataLoader.addRulesByAnnotatedClass(repository, CheckList.getCheckClasses());
         repository.done();
     }

@@ -13,8 +13,8 @@ public class SapCxItemsPreperties {
     public static final String REPOSITORY_KEY = "sapcx-items";
     public static final String REPOSITORY_NAME = "SAPCX Items Analyzer";
 
-    public static final String SQLI_WAY_PROFILE_NAME = "Sonar way with SAP CX Items rules";
-    public static final String SQLI_WAY_PATH = "com/sqli/l10n/sapcx/rules/items/SQLI_way_profile.json";
+    public static final String SONAR_WAY_SAPCX_ITEMS_PROFILE_NAME = "Sonar way with SAP CX Items rules";
+    public static final String SONAR_WAY_SAPCX_ITEMS_PATH = "com/sqli/l10n/sapcx/rules/items/Sonar_way_sapcx_items_profile.json";
 
     public static final String XML_SONAR_WAY = "Sonar way";
 }
