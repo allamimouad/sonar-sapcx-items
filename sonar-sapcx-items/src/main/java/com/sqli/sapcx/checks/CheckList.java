@@ -10,7 +10,7 @@ public class CheckList {
 
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
-                XPathDeploymentTypeCodeCheck.class
+                DeploymentTypeCodeCheck.class
         );
     }
 
