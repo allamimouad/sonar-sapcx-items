@@ -51,7 +51,7 @@ public class SapCxItemsSensor implements Sensor {
             return;
         }
 
-        ProgressReport progressReport = new ProgressReport("Report about progress of SAP CX Items Analyzer", TimeUnit.SECONDS.toMillis(10));
+        ProgressReport progressReport = new ProgressReport("Report about progress of SAP CX Items Analyzer", TimeUnit.SECONDS.toMillis(5));
         progressReport.start(inputFiles.stream().map(InputFile::toString).collect(Collectors.toList()));
 
         boolean cancelled = false;
@@ -78,14 +78,13 @@ public class SapCxItemsSensor implements Sensor {
             XmlFile xmlFile = XmlFile.create(inputFile);
             runChecks(context, xmlFile);
         } catch (Exception e) {
-            throw new RuntimeException("Error while scanning the file : " + inputFile, e);
+            processParseException(e, context, inputFile);
         }
     }
 
     private void runChecks(SensorContext context, XmlFile newXmlFile) {
         checks.all().stream()
                 .map(SonarXmlCheck.class::cast)
-                // checks.ruleKey(check) is never null because "check" is part of "checks.all()"
                 .forEach(check -> runCheck(context, check, checks.ruleKey(check), newXmlFile));
     }
 
@@ -112,6 +111,20 @@ public class SapCxItemsSensor implements Sensor {
         descriptor
                 .onlyOnLanguage(SapCxItemsPreperties.XML_KEY)
                 .name("SAP CX Items Sensor");
+    }
+
+    private void processParseException(Exception e, SensorContext context, InputFile inputFile) {
+        reportAnalysisError(e, context, inputFile);
+
+        LOG.warn(String.format("Unable to analyse file %s;", inputFile.uri()));
+        LOG.debug("Cause: {}", e.getMessage());
+    }
+
+    private static void reportAnalysisError(Exception e, SensorContext context, InputFile inputFile) {
+        context.newAnalysisError()
+                .onFile(inputFile)
+                .message(e.getMessage())
+                .save();
     }
 
 }

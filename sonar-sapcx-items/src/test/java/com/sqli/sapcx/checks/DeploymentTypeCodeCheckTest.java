@@ -9,11 +9,11 @@ class DeploymentTypeCodeCheckTest {
 
     @Test
     void deplotmentTypeCodesGreaterThan10000ShouldBeFine() {
-        SonarXmlCheckVerifier.verifyNoIssue(Paths.get("ok-typecode-items.xml").toString(), new DeploymentTypeCodeCheck());
+        SonarXmlCheckVerifier.verifyNoIssue("ok-typecode-items.xml", new DeploymentTypeCodeCheck());
     }
 
     @Test
     void deplotmentTypeCodesLessThan10000ShouldBeReported() {
-        SonarXmlCheckVerifier.verifyIssues(Paths.get("ko-typecode-items.xml").toString(), new DeploymentTypeCodeCheck());
+        SonarXmlCheckVerifier.verifyIssues("ko-typecode-items.xml", new DeploymentTypeCodeCheck());
     }
 }

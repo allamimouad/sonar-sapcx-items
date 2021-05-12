@@ -36,10 +36,9 @@ class SapCxItemsSensorTest {
     private SapCxItemsSensor sensor;
     private SensorContextTester context;
 
-    @Test
     void test_analysis_cancellation() throws Exception {
         init();
-        fs.add(createInputFile("test-items.xml"));
+        fs.add(createInputFile("src/test-items.xml"));
 
         context.setCancelled(true);
         sensor.execute(context);

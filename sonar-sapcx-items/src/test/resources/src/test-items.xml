@@ -3,7 +3,6 @@
  Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 -->
 <items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="items.xsd">
-
     <itemtypes>
         <typegroup name="CustomItems">
             <itemtype code="Activity" jaloclass="com.soufflet.farmi.shop.core.jalo.Activity">
