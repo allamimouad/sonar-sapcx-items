@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="items.xsd">
+
+    <relations>
+        <relation code="B2BUnit2Owners" localized="false" autocreate="true" generate="true">
+            <deployment table="b2bunit2Owners" typecode="10335"/>
+            <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set"/>
+            <targetElement type="B2BCustomer" qualifier="owners" cardinality="many" collectiontype="set"/>
+        </relation>
+    </relations>
+    <itemtypes>
+        <typegroup name="CustomItems">
+            <itemtype code="Activity" jaloclass="com.soufflet.farmi.shop.core.jalo.Activity">
+                <deployment table="activity" typecode="10234"/>
+                <attributes>
+                    <attribute qualifier="code" type="java.lang.String">
+                        <persistence type="property"/>
+                        <modifiers read="true" write="true" search="true" unique="true"/>
+                    </attribute>
+                    <attribute qualifier="name" type="localized:java.lang.String">
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="deliveryDelayStock" type="java.lang.Integer">
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="DeliveryDelayOutSeason" type="java.lang.Integer">
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="deliveryText" type="localized:java.lang.String">
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+                <indexes>
+                    <index name="activityIdentityIDX" unique="true">
+                        <key attribute="code"/>
+                    </index>
+                </indexes>
+            </itemtype>
+        </typegroup>
+    </itemtypes>
+</items>

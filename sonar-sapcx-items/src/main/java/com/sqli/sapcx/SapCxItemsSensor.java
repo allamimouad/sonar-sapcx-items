@@ -1,22 +1,3 @@
-/*
- * SonarQube XML Plugin
- * Copyright (C) 2010-2021 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
 package com.sqli.sapcx;
 
 import com.sqli.sapcx.checks.CheckList;
@@ -29,6 +10,7 @@ import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.internal.google.common.annotations.VisibleForTesting;
+import org.sonar.api.measures.FileLinesContextFactory;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -49,12 +31,15 @@ public class SapCxItemsSensor implements Sensor {
     private final Checks<Object> checks;
     private final FileSystem fileSystem;
     private final FilePredicate mainFilesPredicate;
+    private final FileLinesContextFactory fileLinesContextFactory;
 
-    public SapCxItemsSensor(FileSystem fileSystem, CheckFactory checkFactory) {
+
+    public SapCxItemsSensor(FileSystem fileSystem, CheckFactory checkFactory, FileLinesContextFactory fileLinesContextFactory) {
         this.checks = checkFactory.create(SapCxItemsPreperties.REPOSITORY_KEY).addAnnotatedChecks((Iterable<?>) CheckList.getCheckClasses());
         this.fileSystem = fileSystem;
         this.mainFilesPredicate = fileSystem.predicates().and(
                 fileSystem.predicates().matchesPathPattern(SapCxItemsPreperties.SAPCX_ITEMS_SUFFIXES));
+        this.fileLinesContextFactory = fileLinesContextFactory;
     }
 
     @Override
@@ -66,7 +51,7 @@ public class SapCxItemsSensor implements Sensor {
             return;
         }
 
-        ProgressReport progressReport = new ProgressReport("Report about progress of SAP CX Items Analyzer", TimeUnit.SECONDS.toMillis(10));
+        ProgressReport progressReport = new ProgressReport("Report about progress of SAP CX Items Analyzer", TimeUnit.SECONDS.toMillis(5));
         progressReport.start(inputFiles.stream().map(InputFile::toString).collect(Collectors.toList()));
 
         boolean cancelled = false;
@@ -93,14 +78,13 @@ public class SapCxItemsSensor implements Sensor {
             XmlFile xmlFile = XmlFile.create(inputFile);
             runChecks(context, xmlFile);
         } catch (Exception e) {
-            throw new RuntimeException("Error while scanning the file : " + inputFile, e);
+            processParseException(e, context, inputFile);
         }
     }
 
     private void runChecks(SensorContext context, XmlFile newXmlFile) {
         checks.all().stream()
                 .map(SonarXmlCheck.class::cast)
-                // checks.ruleKey(check) is never null because "check" is part of "checks.all()"
                 .forEach(check -> runCheck(context, check, checks.ruleKey(check), newXmlFile));
     }
 
@@ -127,6 +111,20 @@ public class SapCxItemsSensor implements Sensor {
         descriptor
                 .onlyOnLanguage(SapCxItemsPreperties.XML_KEY)
                 .name("SAP CX Items Sensor");
+    }
+
+    private void processParseException(Exception e, SensorContext context, InputFile inputFile) {
+        reportAnalysisError(e, context, inputFile);
+
+        LOG.warn(String.format("Unable to analyse file %s;", inputFile.uri()));
+        LOG.debug("Cause: {}", e.getMessage());
+    }
+
+    private static void reportAnalysisError(Exception e, SensorContext context, InputFile inputFile) {
+        context.newAnalysisError()
+                .onFile(inputFile)
+                .message(e.getMessage())
+                .save();
     }
 
 }
