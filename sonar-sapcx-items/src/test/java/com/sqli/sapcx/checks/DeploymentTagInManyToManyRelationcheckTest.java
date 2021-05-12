@@ -8,12 +8,12 @@ class DeploymentTagInManyToManyRelationcheckTest {
 
     @Test
     void deploymentExistInManyToManyShouldBeFine() {
-        SonarXmlCheckVerifier.verifyNoIssue("ok-deployment-in-many-to-many-relation.xml", new DeploymentTagInManyToManyRelationcheck());
+        SonarXmlCheckVerifier.verifyNoIssue("ok-deployment-in-many-to-many-relation.xml", new DeploymentTagInManyToManyRelationCheck());
     }
 
     @Test
     void deploymentMissingInManyToManyShouldBeReported() {
-        SonarXmlCheckVerifier.verifyIssues("ko-deployment-in-many-to-many-relation.xml", new DeploymentTagInManyToManyRelationcheck());
+        SonarXmlCheckVerifier.verifyIssues("ko-deployment-in-many-to-many-relation.xml", new DeploymentTagInManyToManyRelationCheck());
     }
 
 }
