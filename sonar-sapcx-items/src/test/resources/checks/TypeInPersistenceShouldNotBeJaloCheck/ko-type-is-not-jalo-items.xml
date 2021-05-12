@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="items.xsd">
+
+    <itemtypes>
+        <typegroup name="CustomItems">
+            <itemtype code="Activity" jaloclass="com.soufflet.farmi.shop.core.jalo.Activity">
+                <deployment table="activity" typecode="10234"/>
+                <attributes>
+                    <attribute qualifier="code" type="java.lang.String">
+                        <persistence type="property"/>
+                        <modifiers read="true" write="true" search="true" unique="true"/>
+                    </attribute>
+                    <attribute qualifier="name" type="localized:java.lang.String">
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="deliveryDelayStock" type="java.lang.Integer">
+                        <persistence type="jalo"/><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
+                    </attribute>
+                    <attribute qualifier="DeliveryDelayOutSeason" type="java.lang.Integer">
+                        <persistence type="jalo"/><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
+                    </attribute>
+                    <attribute qualifier="deliveryText" type="localized:java.lang.String">
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+                <indexes>
+                    <index name="activityIdentityIDX" unique="true">
+                        <key attribute="code"/>
+                    </index>
+                </indexes>
+            </itemtype>
+
+            <itemtype code="Employee" autocreate="false" generate="false">
+                <description>Extending Employee type</description>
+                <attributes>
+                    <attribute qualifier="job" type="localized:java.lang.String">
+                        <persistence type="dynamic" />
+                    </attribute>
+                    <attribute qualifier="email" type="java.lang.String">
+                        <persistence type="jalo" /><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
+                    </attribute>
+                    <attribute qualifier="phone" type="java.lang.String">
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="mobilePhone" type="java.lang.String">
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="orderDisplay" type="SortDisplayEnum">
+                        <persistence type="dynamic" />
+                    </attribute>
+                    <attribute qualifier="managerEmail" type="java.lang.String">
+                        <persistence type="property" />
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
+    </itemtypes>
+</items>
