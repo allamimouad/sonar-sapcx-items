@@ -15,20 +15,20 @@ public class QualifierShouldStartWithLowerCaseCheck extends SimpleXPathBasedChec
     private final XPathExpression allQualifiersExpression =
             getXPathExpression("(//relation/sourceElement | // targetElement | //itemtype/attributes/attribute)/@qualifier");
     @Override
-    public void scanFile(XmlFile xmlFile) {
-        List<Node> allQualifiers = evaluateAsList(this.allQualifiersExpression, xmlFile.getDocument());
+    public void scanFile(XmlFile file) {
+        List<Node> allQualifiers = evaluateAsList(this.allQualifiersExpression, file.getDocument());
         allQualifiers.stream()
                 .map(Attr.class::cast)
                 .filter(this::isInvalidQualifier)
                 .forEach(this::reportInvalidQualifier);
     }
     private void reportInvalidQualifier(Attr invalidQualifier) {
-        reportIssue(invalidQualifier, "Qualifier attribute" + invalidQualifier.getValue() + "should start with lower case letter.");
+        reportIssue(invalidQualifier, "Qualifier" + " "+ invalidQualifier.getValue() + " "+"should start with lower case letter.");
     }
 
     private boolean isInvalidQualifier(Attr qualifier) {
-        final char FirstLetterOfQualifier= qualifier.getValue().charAt(0);
-        return (Character.isLowerCase(FirstLetterOfQualifier));
+        final char FirstLetterOfQualifier=qualifier.getValue().charAt(0);
+        return (Character.isUpperCase(FirstLetterOfQualifier));
     }
 
 }
