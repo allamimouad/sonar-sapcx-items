@@ -1,0 +1,17 @@
+{
+  "title": "the first letter value of the qualifier should start with a lowercase .",
+  "type": "BUG",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "2min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-LowerCaseQualifierCheck_RULE_KEY",
+  "sqKey": "LowerCaseQualifierCheck_RULE_KEY",
+  "scope": "All"
+}
