@@ -11,7 +11,7 @@
     "convention"
   ],
   "defaultSeverity": "Critical",
-  "ruleSpecification": "RSPEC-LowerCaseQualifierCheck_RULE_KEY",
-  "sqKey": "LowerCaseQualifierCheck_RULE_KEY",
+  "ruleSpecification": "RSPEC-QualifierShouldStartWithLowerCaseCheck_RULE_KEY",
+  "sqKey": "QualifierShouldStartWithLowerCaseCheck_RULE_KEY",
   "scope": "All"
 }
