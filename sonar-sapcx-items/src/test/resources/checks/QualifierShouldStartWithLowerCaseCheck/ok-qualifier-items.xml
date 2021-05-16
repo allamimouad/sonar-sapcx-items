@@ -7,8 +7,8 @@
     <relations>
 
         <relation code="Unit2Employee" localized="false">
-            <sourceElement type="B2BUnit" qualifier="b2bUnit"
-                           cardinality="many">
+            <sourceElement type="B2BUnit"
+                           cardinality="many" qualifier="b2bUnit">
                 <modifiers read="true" write="true" search="true" />
             </sourceElement>
             <targetElement type="Employee" cardinality="one"
@@ -22,21 +22,12 @@
 
         <typegroup name="SouffletItems">
 
-            <!-- Add your item definitions here -->
-            <itemtype code="MiniQuoteComponent" generate="true"
-                      extends="MiniCartComponent" autocreate="true"
-                      jaloclass="de.hybris.platform.acceleratorcms.jalo.components.MiniQuoteComponent">
-                <description>It represents mini cart component that can be configured to show some information about cart content.</description>
-
-            </itemtype>
-
-
             <itemtype code="MiniQuoteComponent" autocreate="false" generate="false">
                 <attributes>
-                    <attribute qualifier="typoCode" type="TypoCode">
+                    <attribute  type="TypoCode" qualifier="typoCode">
                         <persistence type="property"/>
                     </attribute>
-                    <attribute qualifier="category" type="Category">
+                    <attribute  type="Category" qualifier="category">
                         <persistence type="property"/>
                     </attribute>
                 </attributes>

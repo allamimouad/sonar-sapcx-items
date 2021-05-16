@@ -11,7 +11,7 @@ public class QualifierShouldStartWithLowerCaseCheckTest {
     }
     @Test
     void qualifierStartWithLowerCaseBeReported() {
-        SonarXmlCheckVerifier.verifyIssues("ko-typecode-items.xml", new DeploymentTypeCodeCheck());
+        SonarXmlCheckVerifier.verifyIssues("ko-qualifier-items.xml", new QualifierShouldStartWithLowerCaseCheck());
     }
 
 }

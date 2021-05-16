@@ -23,7 +23,7 @@ public class QualifierShouldStartWithLowerCaseCheck extends SimpleXPathBasedChec
                 .forEach(this::reportInvalidQualifier);
     }
     private void reportInvalidQualifier(Attr invalidQualifier) {
-        reportIssue(invalidQualifier, "Qualifier" + " "+ invalidQualifier.getValue() + " "+"should start with lower case letter.");
+        reportIssue(invalidQualifier, "Qualifier value should start with lower case letter.");
     }
 
     private boolean isInvalidQualifier(Attr qualifier) {
