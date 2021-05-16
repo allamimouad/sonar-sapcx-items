@@ -1,0 +1,17 @@
+{
+  "title": "Do not start Item type codes with Generated.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-ItemTypeCodeCheck_RULE_KEY",
+  "sqKey": "ItemTypeCodeCheck_RULE_KEY",
+  "scope": "All"
+}

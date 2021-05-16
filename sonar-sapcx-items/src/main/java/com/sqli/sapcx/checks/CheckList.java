@@ -10,7 +10,8 @@ public class CheckList {
 
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
-                DeploymentTypeCodeCheck.class
+                DeploymentTypeCodeCheck.class,
+                ItemTypeCodeCheck.class
         );
     }
 
