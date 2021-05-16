@@ -36,7 +36,6 @@ class SapCxItemsSQLIWayProfileTest {
 
         SapCxItemsSQLIWayProfile definition = new SapCxItemsSQLIWayProfile();
         definition.define(context);
-
         BuiltInQualityProfilesDefinition.BuiltInQualityProfile profile = context.profile(SapCxItemsPreperties.XML_KEY, SapCxItemsPreperties.SONAR_WAY_SAPCX_ITEMS_PROFILE_NAME);
 
         assertThat(profile.language()).isEqualTo(SapCxItemsPreperties.XML_KEY);

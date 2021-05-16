@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="items.xsd">
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="items.xsd">
+
     <relations>
-        <relation code="Product2RockBand" autocreate="true" generate="false" localized="false">
-            <sourceElement qualifier="Tours" type="Product" collectiontype="set" cardinality="many" ordered="false">
-                <modifiers read="true" write="true" search="true" optional="true" />
+        <relation code="Unit2Employee" localized="false">
+            <sourceElement type="B2BUnit" qualifier="B2bUnit"
+                           cardinality="many"> <!--  Noncompliant {{ qualifier of sourceElement must with a lowercase letter.}} -->
+                <modifiers read="true" write="true" search="true" />
             </sourceElement>
-            <targetElement qualifier="Band" type="Band" cardinality="one">
-                <modifiers read="true" write="true" search="true" optional="true" />
+            <targetElement type="Employee" cardinality="one"
+                           qualifier="managerAccount"> <!--  Noncompliant {{ qualifier of targetElement must with a lowercase letter.}} -->
+                <description>Employee-Account Manager associated to a Parent B2BUnit</description>
+                <modifiers read="true" write="true" search="true" />
             </targetElement>
         </relation>
     </relations>
     <itemtypes>
-        <itemtype generate="true" code="Product" autocreate="false">
-            <attributes>
-                <attribute qualifier="Hashtag" type="java.lang.String">
-                    <description>hashtag of concert tour for social media</description>
-                    <persistence type="property" />
-                </attribute>
-            </attributes>
-        </itemtype>
+
+        <typegroup name="SouffletItems">
+
+            <itemtype code="MiniQuoteComponent" generate="true"
+                      extends="MiniCartComponent" autocreate="true"
+                      jaloclass="de.hybris.platform.acceleratorcms.jalo.components.MiniQuoteComponent">
+                <description>It represents mini cart component that can be configured to show some information about cart content.</description>
+            </itemtype>
+
+            <itemtype code="MiniQuoteComponent" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="TypoCode" type="TypoCode"> <!--  Noncompliant {{ qualifier of attribute must with a lowercase letter.}} -->
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="category" type="Category">
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
     </itemtypes>
 </items>

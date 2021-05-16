@@ -27,8 +27,8 @@ public class QualifierShouldStartWithLowerCaseCheck extends SimpleXPathBasedChec
     }
 
     private boolean isInvalidQualifier(Attr qualifier) {
-        final char FirstLetterOfQualifier=qualifier.getValue().charAt(0);
-        return (Character.isUpperCase(FirstLetterOfQualifier));
+        final char firstLetterOfQualifier=qualifier.getValue().charAt(0);
+        return (Character.isUpperCase(firstLetterOfQualifier));
     }
 
 }

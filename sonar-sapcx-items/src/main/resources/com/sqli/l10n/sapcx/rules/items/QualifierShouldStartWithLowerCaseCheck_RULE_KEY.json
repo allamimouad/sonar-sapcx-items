@@ -1,10 +1,10 @@
 {
   "title": "the first letter value of the qualifier should start with a lowercase .",
-  "type": "BUG",
+  "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {
     "func": "Constant\/Issue",
-    "constantCost": "2min"
+    "constantCost": "1min"
   },
   "tags": [
     "hybris",
