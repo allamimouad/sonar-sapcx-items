@@ -2,15 +2,14 @@ package com.sqli.sapcx.checks;
 import org.sonar.check.Rule;
 import org.sonarsource.analyzer.commons.xml.XmlFile;
 import org.sonarsource.analyzer.commons.xml.checks.SimpleXPathBasedCheck;
-import org.w3c.dom.Attr;
 import org.w3c.dom.Node;
 
 import javax.xml.xpath.XPathExpression;
 import java.util.List;
 
-@Rule(key = ItemTypeCodeCheck.RULE_KEY)
-public class ItemTypeCodeCheck extends SimpleXPathBasedCheck {
-    public static final String RULE_KEY = "ItemTypeCodeCheck_RULE_KEY";
+@Rule(key = CodeShouldNotStartWithGeneratedCheck.RULE_KEY)
+public class CodeShouldNotStartWithGeneratedCheck extends SimpleXPathBasedCheck {
+    public static final String RULE_KEY = "CodeShouldNotStartWithGeneratedCheck_RULE_KEY";
 
     private final XPathExpression allItemTypeCodesExpression = getXPathExpression("//itemtype/@code[starts-with(.,'Generated')]");
 

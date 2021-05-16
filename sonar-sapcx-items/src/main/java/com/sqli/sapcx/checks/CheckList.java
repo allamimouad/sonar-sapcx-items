@@ -11,7 +11,7 @@ public class CheckList {
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
                 DeploymentTypeCodeCheck.class,
-                ItemTypeCodeCheck.class
+                CodeShouldNotStartWithGeneratedCheck.class
         );
     }
 

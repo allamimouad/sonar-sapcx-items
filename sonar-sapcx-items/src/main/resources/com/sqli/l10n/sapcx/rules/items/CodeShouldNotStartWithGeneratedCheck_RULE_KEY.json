@@ -11,7 +11,7 @@
     "convention"
   ],
   "defaultSeverity": "Critical",
-  "ruleSpecification": "RSPEC-ItemTypeCodeCheck_RULE_KEY",
-  "sqKey": "ItemTypeCodeCheck_RULE_KEY",
+  "ruleSpecification": "RSPEC-CodeShouldNotStartWithGeneratedCheck_RULE_KEY",
+  "sqKey": "CodeShouldNotStartWithGeneratedCheck_RULE_KEY",
   "scope": "All"
 }
