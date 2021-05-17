@@ -1,6 +1,7 @@
 {
   "name": "Sonar way with SAP CX Items rules",
   "ruleKeys": [
+    "AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck_RULE_KEY",
     "DeploymentTypeCodeCheck_RULE_KEY",
     "CodeShouldNotStartWithGeneratedCheck_RULE_KEY"
   ]

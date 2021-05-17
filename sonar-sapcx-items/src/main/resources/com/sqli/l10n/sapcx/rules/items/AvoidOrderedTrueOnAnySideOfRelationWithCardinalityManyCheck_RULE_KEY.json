@@ -1,0 +1,17 @@
+{
+  "title": "Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck_RULE_KEY",
+  "sqKey": "AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck_RULE_KEY",
+  "scope": "All"
+}
