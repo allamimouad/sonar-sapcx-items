@@ -1,0 +1,17 @@
+{
+  "title": "Define Boolean attributes as mandatory.",
+  "type": "BUG",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Blocker",
+  "ruleSpecification": "RSPEC-BooleanAttributesAsMandatoryCheck_RULE_KEY",
+  "sqKey": "BooleanAttributesAsMandatoryCheck_RULE_KEY",
+  "scope": "All"
+}
