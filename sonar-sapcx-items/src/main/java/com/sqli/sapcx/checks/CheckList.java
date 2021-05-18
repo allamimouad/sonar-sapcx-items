@@ -10,6 +10,7 @@ public class CheckList {
 
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
+                CollectionTypeSetOnAnyRelationWithCardinalityManyCheck.class,
                 DeploymentTypeCodeCheck.class,
                 CodeShouldNotStartWithGeneratedCheck.class
         );
