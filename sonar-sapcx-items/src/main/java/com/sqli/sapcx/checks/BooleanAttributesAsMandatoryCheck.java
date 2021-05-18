@@ -13,12 +13,13 @@ public class BooleanAttributesAsMandatoryCheck extends SimpleXPathBasedCheck {
     public static final String RULE_KEY = "BooleanAttributesAsMandatoryCheck_RULE_KEY";
 
     // Not that an the default value of optional is true
-    private final XPathExpression allOptionalBooleanAttributesExpression = getXPathExpression("//attribute[(@type='java.lang.Boolean' or type='boolean') "
-                                                                                                + "and (not(./modifiers) or ./modifiers[not(@optional='false')]) ]");
+    // and if a it have default value of False or True there is no problem with optional
+    private final XPathExpression allOptionalBooleanAttributesWithNoDefaultValueExpression = getXPathExpression("//attribute[(@type='java.lang.Boolean' or type='boolean') "
+                                                                                                + "and ( not(./defaultvalue) " + "and (not(./modifiers) or ./modifiers[not(@optional='false')])) ]");
 
     @Override
     public void scanFile(XmlFile file) {
-        List<Node> allItemTypeCodes = evaluateAsList(this.allOptionalBooleanAttributesExpression, file.getDocument());
+        List<Node> allItemTypeCodes = evaluateAsList(this.allOptionalBooleanAttributesWithNoDefaultValueExpression, file.getDocument());
         allItemTypeCodes
                 .forEach(codeAttr -> reportIssue(codeAttr, "Define Boolean attributes as mandatory."));
     }

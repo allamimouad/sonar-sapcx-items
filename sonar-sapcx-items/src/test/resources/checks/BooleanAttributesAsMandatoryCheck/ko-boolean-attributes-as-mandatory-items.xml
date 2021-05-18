@@ -9,13 +9,20 @@
                   jaloclass="com.soufflet.farmi.shop.core.jalo.FarmiCertiPhyto">
             <deployment table="farmiCertiPhyto" typecode="10240"/>
             <attributes>
-                <attribute qualifier="isTester" type="java.lang.Boolean"><!--  Noncompliant {{Define Boolean attributes as mandatory.}} -->
+                <attribute qualifier="isTester" type="java.lang.Boolean">
                     <defaultvalue>Boolean.FALSE</defaultvalue>
                     <modifiers read="true" write="true" search="true"/>
                     <persistence type="property"/>
                 </attribute>
-                <attribute qualifier="isBestTester" type="java.lang.Boolean"><!--  Noncompliant {{Define Boolean attributes as mandatory.}} -->
+                <attribute qualifier="isTester2" type="java.lang.Boolean"><!--  Noncompliant {{Define Boolean attributes as mandatory.}} -->
+                    <modifiers read="true" write="true" search="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="isBestTester" type="java.lang.Boolean">
                     <defaultvalue>Boolean.FALSE</defaultvalue>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="isBestTester2" type="java.lang.Boolean"><!--  Noncompliant {{Define Boolean attributes as mandatory.}} -->
                     <persistence type="property"/>
                 </attribute>
                 <attribute qualifier="isUser" type="java.lang.Boolean">
@@ -39,24 +46,19 @@
                     <modifiers read="true" write="true" search="true" optional="false"/>
                     <persistence type="property"/>
                 </attribute>
+                <attribute qualifier="isUser2" type="java.lang.Boolean">
+                    <modifiers read="true" write="true" search="true" optional="false"/>
+                    <persistence type="property"/>
+                </attribute>
                 <attribute qualifier="userTypology" type="UserTypologyEnum">
                     <persistence type="property"/>
                 </attribute>
-                <attribute qualifier="isAdmin" type="java.lang.Boolean"><!--  Noncompliant {{Define Boolean attributes as mandatory.}} -->
+                <attribute qualifier="isAdmin" type="java.lang.Boolean">
                     <defaultvalue>Boolean.FALSE</defaultvalue>
                     <modifiers read="true" write="true" search="true" optional="true"/>
                     <persistence type="property"/>
                 </attribute>
-                <attribute qualifier="country" type="java.lang.String">
-                    <modifiers optional="false" initial="true"/>
-                    <persistence type="property"/>
-                </attribute>
-                <attribute qualifier="cartQuote" type="CartQuote">
-                    <modifiers read="true" write="true" search="true" optional="true"/>
-                    <persistence type="property"/>
-                </attribute>
-                <attribute qualifier="isAnOwner" type="java.lang.Boolean"><!--  Noncompliant {{Define Boolean attributes as mandatory.}} -->
-                    <defaultvalue>Boolean.FALSE</defaultvalue>
+                <attribute qualifier="isAdmin2" type="java.lang.Boolean"><!--  Noncompliant {{Define Boolean attributes as mandatory.}} -->
                     <modifiers read="true" write="true" search="true" optional="true"/>
                     <persistence type="property"/>
                 </attribute>
