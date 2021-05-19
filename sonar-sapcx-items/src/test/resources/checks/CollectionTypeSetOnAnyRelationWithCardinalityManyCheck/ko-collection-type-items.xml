@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<items>
+    <relations>
+        <relation code="TariffZone2Commune" localized="false" autocreate="true" generate="true">
+            <sourceElement qualifier="priceZone" type="FarmiTariffZone" cardinality="one"/>
+            <targetElement qualifier="communes" type="FarmiCommune" cardinality="many"/><!--  Noncompliant {{Use collectiontype='set' on any side of a relation that has cardinality='many' where items must not appear in that relation multiple times.}} -->
+        </relation>
+        <relation code="CartQuote2Quote" localized="false">
+            <sourceElement type="CartQuote" qualifier="cartQuote" cardinality="one">
+                <modifiers optional="true"/>
+            </sourceElement>
+            <targetElement type="Quote" qualifier="quotesReferences" cardinality="many" collectiontype="list"><!--  Noncompliant {{Use collectiontype='set' on any side of a relation that has cardinality='many' where items must not appear in that relation multiple times.}} -->
+                <modifiers optional="true"/>
+            </targetElement>
+        </relation>
+        <relation code="Activity2FavoriteWarehouse" localized="false">
+            <sourceElement type="Activity" qualifier="activity" cardinality="one">
+                <modifiers optional="false" unique="true"/>
+            </sourceElement>
+            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many" collectiontype="collection"><!--  Noncompliant {{Use collectiontype='set' on any side of a relation that has cardinality='many' where items must not appear in that relation multiple times.}} -->
+                <modifiers partof="true"/>
+            </targetElement>
+        </relation>
+
+        <relation code="PrincipalGroupRelation" autocreate="true" generate="false" localized="false"
+                  deployment="de.hybris.platform.persistence.link.PrincipalGroupRelation">
+            <sourceElement qualifier="members" type="Principal" collectiontype="set" cardinality="many" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement qualifier="groups" type="PrincipalGroup" cardinality="many" ordered="false"><!--  Noncompliant {{Use collectiontype='set' on any side of a relation that has cardinality='many' where items must not appear in that relation multiple times.}} -->
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+    </relations>
+
+</items>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<items>
+    <relations>
+        <relation code="CartQuote2Quote" localized="false">
+            <sourceElement type="CartQuote" qualifier="cartQuote" cardinality="one">
+                <modifiers optional="true"/>
+            </sourceElement>
+            <targetElement type="Quote" qualifier="quotesReferences" cardinality="many" collectiontype="set">
+                <modifiers optional="true"/>
+            </targetElement>
+        </relation>
+
+        <relation code="PrincipalGroupRelation" autocreate="true" generate="false" localized="false"
+                  deployment="de.hybris.platform.persistence.link.PrincipalGroupRelation">
+            <sourceElement qualifier="members" type="Principal" collectiontype="set" cardinality="many" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement qualifier="groups" type="PrincipalGroup" collectiontype="set" cardinality="many" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+    </relations>
+
+</items>
