@@ -13,6 +13,7 @@ public class CheckList {
                 UseDescriptionTagInAttributeCheck.class,
                 DeploymentTypeCodeCheck.class,
                 CodeShouldNotStartWithGeneratedCheck.class
+                QualifierShouldStartWithLowerCaseCheck.class
         );
     }
 

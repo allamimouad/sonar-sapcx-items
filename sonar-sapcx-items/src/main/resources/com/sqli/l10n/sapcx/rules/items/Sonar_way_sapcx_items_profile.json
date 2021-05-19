@@ -4,5 +4,6 @@
     "UseDescriptionTagInAttributeCheck_RULE_KEY",
     "DeploymentTypeCodeCheck_RULE_KEY",
     "CodeShouldNotStartWithGeneratedCheck_RULE_KEY"
+    "QualifierShouldStartWithLowerCaseCheck_RULE_KEY"
   ]
 }
