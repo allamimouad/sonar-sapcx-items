@@ -10,6 +10,7 @@ public class CheckList {
 
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
+                UseDescriptionTagInAttributeCheck.class,
                 DeploymentTypeCodeCheck.class,
                 CodeShouldNotStartWithGeneratedCheck.class
         );
