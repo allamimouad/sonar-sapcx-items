@@ -17,8 +17,8 @@ public class CollectionTypeSetOnAnyRelationWithCardinalityManyCheck  extends Sim
 
     @Override
     public void scanFile(XmlFile file) {
-        List<Node> allItemTypeCodes = evaluateAsList(this.allManyRelationSidesWithNoCollectionTypeSetExpression, file.getDocument());
-        allItemTypeCodes
+        List<Node> allManyRelationSidesWithNoCollectionTypeSet = evaluateAsList(this.allManyRelationSidesWithNoCollectionTypeSetExpression, file.getDocument());
+        allManyRelationSidesWithNoCollectionTypeSet
                 .forEach(codeAttr -> reportIssue(codeAttr, "Use collectiontype='set' on any side of a relation that has cardinality='many' where items must not appear in that relation multiple times."));
     }
 
