@@ -1,0 +1,17 @@
+{
+  "title": "the first letter value of the qualifier should start with a lowercase .",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-QualifierShouldStartWithLowerCaseCheck_RULE_KEY",
+  "sqKey": "QualifierShouldStartWithLowerCaseCheck_RULE_KEY",
+  "scope": "All"
+}

@@ -10,9 +10,14 @@ public class CheckList {
 
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
+                AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck.class,
+                TypeInPersistenceShouldNotBeJaloOrCmpCheck.class,
+                CollectionTypeSetOnAnyRelationWithCardinalityManyCheck.class,
+                UseDescriptionTagInAttributeCheck.class,
                 DeploymentTypeCodeCheck.class,
                 CodeShouldNotStartWithGeneratedCheck.class,
-                CatalogVersionAttributeMustBeUniqueCheck.class
+                CatalogVersionAttributeMustBeUniqueCheck.class,
+                QualifierShouldStartWithLowerCaseCheck.class
         );
     }
 

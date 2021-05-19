@@ -1,0 +1,2 @@
+<p>Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.</p>
+<p>Order="true" has a significant impact on performance when reading and writing from the database. The queries required to provide a defined order to the items that are returned are much more complex and expensive that an unordered query. Using ordered="true" should only be used when absolutely necessary.</p>
