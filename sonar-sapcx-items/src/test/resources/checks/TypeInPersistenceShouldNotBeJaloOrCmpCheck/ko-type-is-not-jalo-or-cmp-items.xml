@@ -20,7 +20,7 @@
                         <persistence type="jalo"/><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
                     </attribute>
                     <attribute qualifier="DeliveryDelayOutSeason" type="java.lang.Integer">
-                        <persistence type="jalo"/><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
+                        <persistence type="cmp"/><!--  Noncompliant {{The cmp persistence mode is deprecated and must not be used anymore.}} -->
                     </attribute>
                     <attribute qualifier="deliveryText" type="localized:java.lang.String">
                         <persistence type="property"/>
