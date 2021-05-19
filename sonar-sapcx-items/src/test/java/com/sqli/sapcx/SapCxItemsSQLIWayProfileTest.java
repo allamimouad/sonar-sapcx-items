@@ -36,12 +36,11 @@ class SapCxItemsSQLIWayProfileTest {
 
         SapCxItemsSQLIWayProfile definition = new SapCxItemsSQLIWayProfile();
         definition.define(context);
-
         BuiltInQualityProfilesDefinition.BuiltInQualityProfile profile = context.profile(SapCxItemsPreperties.XML_KEY, SapCxItemsPreperties.SONAR_WAY_SAPCX_ITEMS_PROFILE_NAME);
 
         assertThat(profile.language()).isEqualTo(SapCxItemsPreperties.XML_KEY);
         assertThat(profile.name()).isEqualTo(SapCxItemsPreperties.SONAR_WAY_SAPCX_ITEMS_PROFILE_NAME);
-        assertThat(profile.rules().size()).isEqualTo(3);
+        assertThat(profile.rules().size()).isEqualTo(8);
         assertThat(validation.hasErrors()).isFalse();
     }
 
