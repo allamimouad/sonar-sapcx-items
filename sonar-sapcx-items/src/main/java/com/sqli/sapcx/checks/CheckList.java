@@ -11,8 +11,10 @@ public class CheckList {
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
                 CollectionTypeSetOnAnyRelationWithCardinalityManyCheck.class,
+                UseDescriptionTagInAttributeCheck.class,
                 DeploymentTypeCodeCheck.class,
                 CodeShouldNotStartWithGeneratedCheck.class
+                QualifierShouldStartWithLowerCaseCheck.class
         );
     }
 

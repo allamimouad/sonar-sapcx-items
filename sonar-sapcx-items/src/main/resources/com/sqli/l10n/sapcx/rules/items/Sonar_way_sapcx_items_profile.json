@@ -2,7 +2,9 @@
   "name": "Sonar way with SAP CX Items rules",
   "ruleKeys": [
     "CollectionTypeSetOnAnyRelationWithCardinalityManyCheck_RULE_KEY",
+    "UseDescriptionTagInAttributeCheck_RULE_KEY",
     "DeploymentTypeCodeCheck_RULE_KEY",
     "CodeShouldNotStartWithGeneratedCheck_RULE_KEY"
+    "QualifierShouldStartWithLowerCaseCheck_RULE_KEY"
   ]
 }
