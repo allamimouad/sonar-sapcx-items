@@ -1,6 +1,6 @@
 {
   "title": "Mark CatalogVersion attributes as unique for Catalog aware types.",
-  "type": "CODE_SMELL",
+  "type": "BUG",
   "status": "ready",
   "remediation": {
     "func": "Constant\/Issue",
