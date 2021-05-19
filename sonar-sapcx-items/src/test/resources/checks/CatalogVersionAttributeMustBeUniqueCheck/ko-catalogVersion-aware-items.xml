@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="items.xsd">
+
+    <itemtypes>
+        <itemtype code="MyCustomItemType" autocreate="true" generate="true">
+            <deployment table=" MyCustomItemType " typecode="12500"/>
+            <custom-properties>
+                <!-- Defining the type as synchronizing capable here -->
+                <property name="catalogItemType">
+                    <value>java.lang.Boolean.TRUE</value>
+                </property>
+                <!-- defining catalog version attribute here -->
+                <property name="catalogVersionAttributeQualifier">
+                    <value>"catalogVersion"</value>
+                </property>
+                <!-- defining unique key attributes here; separate multiple attribute qualifiers by commas -->
+                <property name="uniqueKeyAttributeQualifier">
+                    <value>"code"</value>
+                </property>
+            </custom-properties>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <modifiers read="true" write="true" search="true" optional="false" unique="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="catalogVersion" type="CatalogVersion">
+                    <modifiers read="true" write="true" search="true" optional="false" unique="false"/> <!--  Noncompliant {{Mark CatalogVersion attributes as unique for Catalog aware types.}} -->
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="MyCatalogType" extends="GenericItem" autocreate="true" generate="true">
+            <deployment table="MyCatalogType" typecode="43253"/>
+            <custom-properties>
+                <property name="catalogItemType">
+                    <value>java.lang.Boolean.TRUE</value>
+                </property>
+                <property name="catalogVersionAttributeQualifier">
+                    <value>"catalogVersion"</value>
+                </property>
+                <property name="uniqueKeyAttributeQualifier">
+                    <value>"uid"</value>
+                </property>
+            </custom-properties>
+            <attributes>
+                <attribute qualifier="uid" generate="true" autocreate="true" type="java.lang.String">
+                    <persistence type="property"/>
+                    <modifiers optional="false" unique="true"/>
+                </attribute>
+                <attribute qualifier="catalogVersion" type="CatalogVersion">
+                    <modifiers optional="false" /><!--  Noncompliant {{Mark CatalogVersion attributes as unique for Catalog aware types.}} -->
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+    </itemtypes>
+</items>
