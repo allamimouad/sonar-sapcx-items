@@ -24,12 +24,12 @@
                 <attributes>
                     <attribute autocreate="true" qualifier="global" type="java.lang.Boolean" generate="true"><!--  Noncompliant {{Ensure mandatory fields (where optional='false') have either initial set to true or a default value defined.}} -->
                         <!--  <defaultvalue>Boolean.FALSE</defaultvalue> -->
-                         <persistence type="property"/>
-                         <modifiers read="true" write="true" search="true" optional="false"/>
-                     </attribute>
-                 </attributes>
-             </itemtype>
+                        <persistence type="property"/>
+                        <modifiers read="true" write="true" search="true" optional="false"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
 
-         </typegroup>
-     </itemtypes>
- </items>
+        </typegroup>
+    </itemtypes>
+</items>

@@ -12,8 +12,7 @@ import java.util.List;
 public class MandatoryfieldsCheck extends SimpleXPathBasedCheck {
     public static final String RULE_KEY = "MandatoryfieldsCheckCheck_RULE_KEY";
     private final XPathExpression allMandatoryfieldsExpression =
-            getXPathExpression("//attribute[modifiers[@optional='false' and @initial='false'] ] " +
-                    "| //attribute[(modifiers[@optional='false' and not(@initial)] ) and not(defaultvalue)]");
+            getXPathExpression("//attribute[modifiers[@optional='false' and @initial='false'] and not(defaultvalue)] | //attribute[(modifiers[@optional='false' and not(@initial)] ) and not(defaultvalue)]");
 
     @Override
     public void scanFile(XmlFile file) {
