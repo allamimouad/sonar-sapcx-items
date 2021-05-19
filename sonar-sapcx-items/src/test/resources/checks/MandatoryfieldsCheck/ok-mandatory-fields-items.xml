@@ -27,6 +27,11 @@
                         <persistence type="property"/>
                         <modifiers read="true" write="true" search="true" optional="false"/>
                     </attribute>
+                    <attribute autocreate="true" qualifier="anotherGlobal" type="java.lang.Boolean" generate="true">
+                        <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>
+                        <modifiers read="true" write="true" search="true" optional="false" initial="false"/>
+                    </attribute>
                 </attributes>
             </itemtype>
 
