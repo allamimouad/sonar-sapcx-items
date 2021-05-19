@@ -1,0 +1,17 @@
+{
+  "title": "Mark CatalogVersion attributes as unique for Catalog aware types.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-CatalogVersionAttributeMustBeUniqueCheck_RULE_KEY",
+  "sqKey": "CatalogVersionAttributeMustBeUniqueCheck_RULE_KEY",
+  "scope": "All"
+}
