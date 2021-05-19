@@ -23,8 +23,8 @@ cache:
   stage: test
   script:
     - 'mvn $MAVEN_CLI_OPTS verify'
-  except:
-    - master
+#  except:
+#    - master
 
 # Verify merge requests using JDK8
 verify:jdk8:
