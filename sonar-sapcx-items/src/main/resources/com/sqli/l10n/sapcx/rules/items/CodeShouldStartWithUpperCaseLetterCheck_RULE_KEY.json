@@ -1,0 +1,17 @@
+{
+  "title": "Code attribute of (Itemtype, relation, enumtype) tags should start with upper case letter.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-CodeShouldStartWithUpperCaseLetterCheck",
+  "sqKey": "CodeShouldStartWithUpperCaseLetterCheck",
+  "scope": "All"
+}
