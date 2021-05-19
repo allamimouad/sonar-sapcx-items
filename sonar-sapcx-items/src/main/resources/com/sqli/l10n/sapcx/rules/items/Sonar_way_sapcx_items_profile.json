@@ -1,6 +1,7 @@
 {
   "name": "Sonar way with SAP CX Items rules",
   "ruleKeys": [
+    "AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck_RULE_KEY",
     "TypeInPersistenceShouldNotBeJaloCheck_RULE_KEY"
     "CollectionTypeSetOnAnyRelationWithCardinalityManyCheck_RULE_KEY",
     "UseDescriptionTagInAttributeCheck_RULE_KEY",
