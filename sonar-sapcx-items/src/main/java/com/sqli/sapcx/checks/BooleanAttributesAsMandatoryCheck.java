@@ -19,8 +19,8 @@ public class BooleanAttributesAsMandatoryCheck extends SimpleXPathBasedCheck {
 
     @Override
     public void scanFile(XmlFile file) {
-        List<Node> allItemTypeCodes = evaluateAsList(this.allOptionalBooleanAttributesWithNoDefaultValueExpression, file.getDocument());
-        allItemTypeCodes
-                .forEach(codeAttr -> reportIssue(codeAttr, "Define Boolean attributes as mandatory."));
+        List<Node> allOptionalBooleanAttributesWithNoDefaultValue = evaluateAsList(this.allOptionalBooleanAttributesWithNoDefaultValueExpression, file.getDocument());
+        allOptionalBooleanAttributesWithNoDefaultValue
+                .forEach(mandatoryAttributeNode -> reportIssue(mandatoryAttributeNode, "Define Boolean attributes as mandatory."));
     }
 }
