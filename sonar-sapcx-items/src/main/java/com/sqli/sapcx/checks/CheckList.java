@@ -10,8 +10,15 @@ public class CheckList {
 
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
+                DeploymentTagInManyToManyRelationCheck.class,
+                AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck.class,
+                TypeInPersistenceShouldNotBeJaloOrCmpCheck.class,
+                CollectionTypeSetOnAnyRelationWithCardinalityManyCheck.class,
+                UseDescriptionTagInAttributeCheck.class,
                 DeploymentTypeCodeCheck.class,
-                DeploymentTagInManyToManyRelationCheck.class
+                CodeShouldNotStartWithGeneratedCheck.class,
+                CodeShouldStartWithUpperCaseLetterCheck.class,
+                QualifierShouldStartWithLowerCaseCheck.class
         );
     }
 
