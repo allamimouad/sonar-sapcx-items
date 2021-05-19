@@ -10,7 +10,7 @@
     "hybris",
     "convention"
   ],
-  "defaultSeverity": "Blocker",
+  "defaultSeverity": "Critical",
   "ruleSpecification": "RSPEC-BooleanAttributesAsMandatoryCheck_RULE_KEY",
   "sqKey": "BooleanAttributesAsMandatoryCheck_RULE_KEY",
   "scope": "All"
