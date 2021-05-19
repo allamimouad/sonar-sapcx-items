@@ -10,7 +10,7 @@
     "hybris",
     "convention"
   ],
-  "defaultSeverity": "Major",
+  "defaultSeverity": "Blocker",
   "ruleSpecification": "RSPEC-DeploymentTagInManyToManyRelationcheck_RULE_KEY",
   "sqKey": "DeploymentTagInManyToManyRelationcheck_RULE_KEY",
   "scope": "All"
