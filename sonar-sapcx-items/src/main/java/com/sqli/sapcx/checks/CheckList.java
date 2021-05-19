@@ -15,7 +15,6 @@ public class CheckList {
                 CollectionTypeSetOnAnyRelationWithCardinalityManyCheck.class,
                 UseDescriptionTagInAttributeCheck.class,
                 DeploymentTypeCodeCheck.class,
-                CodeShouldNotStartWithGeneratedCheck.class,
                 MandatoryfieldsCheck.class,
                 CodeShouldNotStartWithGeneratedCheck.class,
                 QualifierShouldStartWithLowerCaseCheck.class
