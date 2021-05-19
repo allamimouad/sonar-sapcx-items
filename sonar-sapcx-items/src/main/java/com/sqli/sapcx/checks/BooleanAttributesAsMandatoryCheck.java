@@ -14,7 +14,7 @@ public class BooleanAttributesAsMandatoryCheck extends SimpleXPathBasedCheck {
 
     // Not that an the default value of optional is true
     // and if a it have default value of False or True there is no problem with optional
-    private final XPathExpression allOptionalBooleanAttributesWithNoDefaultValueExpression = getXPathExpression("//attribute[(@type='java.lang.Boolean' or type='boolean') "
+    private final XPathExpression allOptionalBooleanAttributesWithNoDefaultValueExpression = getXPathExpression("//attribute[@type='java.lang.Boolean' "
                                                                                                 + "and ( not(./defaultvalue) " + "and (not(./modifiers) or ./modifiers[not(@optional='false')])) ]");
 
     @Override
