@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<items>
+    <itemtypes>
+        <!-- TypeGroups are for structure of this file only -->
+        <typegroup name="SouffletItems">
+
+
+            <itemtype code="MiniQuoteComponent" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="typoCode" type="TypoCode">
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute autocreate="true" qualifier="paymentInfoType" type="ComposedType" generate="true"><!--  Noncompliant {{Ensure mandatory fields (where optional='false') have either initial set to true or a default value defined.}} -->
+                        <persistence type="property"/>
+                        <modifiers read="true" write="true" search="true" initial="false" optional="false"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="PriceRow" autocreate="false" generate="false">
+                <attributes>
+                    <attribute autocreate="true" qualifier="global" type="java.lang.Boolean" generate="true"><!--  Noncompliant {{Ensure mandatory fields (where optional='false') have either initial set to true or a default value defined.}} -->
+                        <!--  <defaultvalue>Boolean.FALSE</defaultvalue> -->
+                         <persistence type="property"/>
+                         <modifiers read="true" write="true" search="true" optional="false"/>
+                     </attribute>
+                 </attributes>
+             </itemtype>
+
+         </typegroup>
+     </itemtypes>
+ </items>
