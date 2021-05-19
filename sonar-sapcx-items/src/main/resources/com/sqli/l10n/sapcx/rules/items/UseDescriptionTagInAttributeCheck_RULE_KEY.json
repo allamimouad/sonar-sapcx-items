@@ -1,0 +1,17 @@
+{
+  "title": "Describe the purpose and intended use of an attribute in a description tag.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "3min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Major",
+  "ruleSpecification": "RSPEC-UseDescriptionTagInAttributeCheck_RULE_KEY",
+  "sqKey": "UseDescriptionTagInAttributeCheck_RULE_KEY",
+  "scope": "All"
+}

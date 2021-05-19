@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="items.xsd">
+
+    <relations>
+        <relation code="Unit2Employee" localized="false">
+            <sourceElement type="B2BUnit"
+                           cardinality="many" qualifier="B2bUnit"> <!--  Noncompliant {{Qualifier value should start with lower case letter.}} -->
+                <modifiers read="true" write="true" search="true" />
+            </sourceElement>
+            <targetElement type="Employee" cardinality="one"
+                           qualifier="ManagerAccount"> <!--  Noncompliant {{Qualifier value should start with lower case letter.}} -->
+                <description>Employee-Account Manager associated to a Parent B2BUnit</description>
+                <modifiers read="true" write="true" search="true" />
+            </targetElement>
+        </relation>
+    </relations>
+    <itemtypes>
+
+        <typegroup name="SouffletItems">
+
+            <itemtype code="MiniQuoteComponent" autocreate="false" generate="false">
+                <attributes>
+                    <attribute  type="TypoCode" qualifier="TypoCode"> <!--  Noncompliant {{Qualifier value should start with lower case letter.}} -->
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute  type="Category" qualifier="category">
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
+    </itemtypes>
+</items>
