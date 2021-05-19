@@ -1,0 +1,17 @@
+{
+  "title": "Use collectiontype='set' on any side of a relation that has cardinality='many' where items must not appear in that relation multiple times.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-CollectionTypeSetOnAnyRelationWithCardinalityManyCheck_RULE_KEY",
+  "sqKey": "CollectionTypeSetOnAnyRelationWithCardinalityManyCheck_RULE_KEY",
+  "scope": "All"
+}

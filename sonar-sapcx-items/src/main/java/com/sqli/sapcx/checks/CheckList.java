@@ -11,8 +11,16 @@ public class CheckList {
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
                 BooleanAttributesAsMandatoryCheck.class,
+                DeploymentTagInManyToManyRelationCheck.class,
+                AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck.class,
+                TypeInPersistenceShouldNotBeJaloOrCmpCheck.class,
+                CollectionTypeSetOnAnyRelationWithCardinalityManyCheck.class,
+                UseDescriptionTagInAttributeCheck.class,
                 DeploymentTypeCodeCheck.class,
-                CodeShouldNotStartWithGeneratedCheck.class
+                CodeShouldNotStartWithGeneratedCheck.class,
+                CatalogVersionAttributeMustBeUniqueCheck.class,
+                CodeShouldStartWithUpperCaseLetterCheck.class,
+                QualifierShouldStartWithLowerCaseCheck.class
         );
     }
 
