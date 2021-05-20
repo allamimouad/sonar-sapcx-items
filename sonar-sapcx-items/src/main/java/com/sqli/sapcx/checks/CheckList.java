@@ -11,8 +11,17 @@ public class CheckList {
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
                 DoNotUseUnoptimizedAttributesCheck.class,
+                DeploymentTagInManyToManyRelationCheck.class,
+                AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck.class,
+                TypeInPersistenceShouldNotBeJaloOrCmpCheck.class,
+                CollectionTypeSetOnAnyRelationWithCardinalityManyCheck.class,
+                UseDescriptionTagInAttributeCheck.class,
                 DeploymentTypeCodeCheck.class,
-                CodeShouldNotStartWithGeneratedCheck.class
+                MandatoryfieldsCheck.class,
+                CodeShouldNotStartWithGeneratedCheck.class,
+                CatalogVersionAttributeMustBeUniqueCheck.class,
+                CodeShouldStartWithUpperCaseLetterCheck.class,
+                QualifierShouldStartWithLowerCaseCheck.class
         );
     }
 

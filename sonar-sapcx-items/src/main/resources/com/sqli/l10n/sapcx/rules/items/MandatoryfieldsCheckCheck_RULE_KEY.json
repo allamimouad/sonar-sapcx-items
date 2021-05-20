@@ -1,0 +1,17 @@
+{
+  "title": "Ensure mandatory fields (where optional='false') have either initial set to true or a default value defined.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-MandatoryfieldsCheckCheck_RULE_KEY",
+  "sqKey": "MandatoryfieldsCheckCheck_RULE_KEY",
+  "scope": "All"
+}

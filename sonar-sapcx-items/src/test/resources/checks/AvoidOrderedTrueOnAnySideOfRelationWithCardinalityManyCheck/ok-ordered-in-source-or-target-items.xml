@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<items >
+    <relations>
+        <relation code="Commune2PostalCode" localized="false" autocreate="true" generate="true">
+            <deployment table="commune2PostalCode" typecode="10334"/>
+            <sourceElement qualifier="communes" type="FarmiCommune" cardinality="many" collectiontype="set"/>
+            <targetElement qualifier="postalCodes" type="FarmiPostalCode" cardinality="many" collectiontype="set"/>
+        </relation>
+        <relation code="TariffZone2Commune" localized="false" autocreate="true" generate="true">
+            <sourceElement qualifier="priceZone" type="FarmiTariffZone" cardinality="one"/>
+            <targetElement qualifier="communes" type="FarmiCommune" cardinality="many"/>
+        </relation>
+        <relation code="Warhouse2FavoriteWarehouse" localized="false">
+            <sourceElement type="Warehouse" qualifier="warehouse" cardinality="one">
+                <modifiers optional="false" unique="true"/>
+            </sourceElement>
+            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many" collectiontype="set">
+                <modifiers partof="true"/>
+            </targetElement>
+        </relation>
+        <relation code="Commune2FavoriteWarehouse" localized="false">
+            <sourceElement type="FarmiCommune" qualifier="commune" cardinality="one">
+                <modifiers optional="false" unique="true"/>
+            </sourceElement>
+            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many" collectiontype="set" ordered="false">
+                <modifiers partof="true"/>
+            </targetElement>
+        </relation>
+        <relation code="CartQuote2Quote" localized="false">
+            <sourceElement type="CartQuote" qualifier="cartQuote" cardinality="one" ordered="true">
+                <modifiers optional="true"/>
+            </sourceElement>
+            <targetElement type="Quote" qualifier="quotesReferences" cardinality="many" collectiontype="set">
+                <modifiers optional="true"/>
+            </targetElement>
+        </relation>
+        <relation code="Activity2FavoriteWarehouse" localized="false">
+            <sourceElement type="Activity" qualifier="activity" cardinality="one">
+                <modifiers optional="false" unique="true"/>
+            </sourceElement>
+            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many" collectiontype="set">
+                <modifiers partof="true"/>
+            </targetElement>
+        </relation>
+        <relation code="B2BUnit2Owners" localized="false" autocreate="true" generate="true">
+            <deployment table="b2bunit2Owners" typecode="10335"/>
+            <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set"/>
+            <targetElement type="B2BCustomer" qualifier="owners" cardinality="many" collectiontype="set" ordered="false"/>
+        </relation>
+        <relation code="B2BUnit2Delegates" localized="false" autocreate="true" generate="true">
+            <deployment table="b2bunit2delegates" typecode="10336"/>
+            <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set"/>
+            <targetElement type="B2BCustomer" qualifier="delegates" cardinality="many" collectiontype="set"/>
+        </relation>
+        <relation code="B2BUnit2Contacts" localized="false" autocreate="true" generate="true">
+            <deployment table="b2bunit2contacts" typecode="10337"/>
+            <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set"/>
+            <targetElement type="Employee" qualifier="contacts" cardinality="many" collectiontype="set"/>
+        </relation>
+        <relation code="Unit2Employee" localized="false">
+            <sourceElement type="B2BUnit" qualifier="b2bUnit"
+                           cardinality="many">
+                <modifiers read="true" write="true" search="true" />
+            </sourceElement>
+            <targetElement type="Employee" cardinality="one"
+                           qualifier="managerAccount">
+                <description>Employee-Account Manager associated to a Parent B2BUnit</description>
+                <modifiers read="true" write="true" search="true" />
+            </targetElement>
+        </relation>
+    </relations>
+
+</items>

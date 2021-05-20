@@ -1,6 +1,7 @@
 
 package com.sqli.sapcx;
 
+import com.sqli.sapcx.types.AttributeName;
 import com.sqli.sapcx.types.NodeName;
 import org.sonarsource.analyzer.commons.xml.XmlFile;
 import org.sonarsource.analyzer.commons.xml.XmlTextRange;
@@ -32,45 +33,6 @@ public class Utils {
         XmlTextRange endLocation = XmlFile.endLocation(element);
         return startLocation.getEndLine() == endLocation.getEndLine()
                 && startLocation.getEndColumn() == endLocation.getEndColumn();
-    }
-
-    //this method make itemtype and typegroupe children(itemtype)
-    // at the same stream level
-    public static Stream<Node> flatMapTypeGroupToItemType(Node node){
-
-        if (NodeName.TYPEGROUP.isTypeOf(node)) {
-            return (XmlFile.children(node)).stream();
-        } else {
-            return Stream.of(node);
-        }
-
-    }
-
-    public static boolean haveDeploymentNode (Element element){
-        return element.getElementsByTagName(NodeName.DEPLOYMENT.getName()).getLength() != 0;
-    }
-
-    public static Element getFirstNodeOccurrenceByName (Element element,String name){
-        return (Element)element.getElementsByTagName(name).item(0);
-    }
-
-    // this method return a List of the root Node
-    public static List<Node> getRootChildrenNodes(XmlFile xmlFile){
-
-        Document document = xmlFile.getDocument();
-        // contain only one node witch is the root node
-        List<Node> documentNodeList = XmlFile.asList(document.getChildNodes());
-
-        // get only root children Nodes as a List
-        // comment are also considered as Node (instanceof Comment) and back to line (instanceof Text)
-        return XmlFile.asList(
-                documentNodeList.stream()
-                        .filter(node -> node instanceof Element)
-                        .collect(Collectors.toList())
-                        .get(0)
-                        .getChildNodes()
-        );
-
     }
 
 
