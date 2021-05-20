@@ -8,6 +8,7 @@
     "UseDescriptionTagInAttributeCheck_RULE_KEY",
     "DeploymentTypeCodeCheck_RULE_KEY",
     "CodeShouldNotStartWithGeneratedCheck_RULE_KEY",
+    "MandatoryfieldsCheckCheck_RULE_KEY",
     "CatalogVersionAttributeMustBeUniqueCheck_RULE_KEY",
     "CodeShouldStartWithUpperCaseLetterCheck_RULE_KEY",
     "QualifierShouldStartWithLowerCaseCheck_RULE_KEY"
