@@ -10,6 +10,7 @@ public class CheckList {
 
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
+                DoNotUseUnoptimizedAttributesCheck.class,
                 DeploymentTagInManyToManyRelationCheck.class,
                 AvoidOrderedTrueOnAnySideOfRelationWithCardinalityManyCheck.class,
                 TypeInPersistenceShouldNotBeJaloOrCmpCheck.class,

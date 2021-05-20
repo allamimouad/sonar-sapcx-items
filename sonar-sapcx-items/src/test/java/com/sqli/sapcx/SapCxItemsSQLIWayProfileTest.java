@@ -40,7 +40,7 @@ class SapCxItemsSQLIWayProfileTest {
 
         assertThat(profile.language()).isEqualTo(SapCxItemsPreperties.XML_KEY);
         assertThat(profile.name()).isEqualTo(SapCxItemsPreperties.SONAR_WAY_SAPCX_ITEMS_PROFILE_NAME);
-        assertThat(profile.rules().size()).isEqualTo(11);
+        assertThat(profile.rules().size()).isEqualTo(12);
         assertThat(validation.hasErrors()).isFalse();
     }
 

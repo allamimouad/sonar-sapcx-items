@@ -1,0 +1,17 @@
+{
+  "title": "Do not use unoptimized attributes.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Blocker",
+  "ruleSpecification": "RSPEC-DoNotUseUnoptimizedAttributesCheck_RULE_KEY",
+  "sqKey": "DoNotUseUnoptimizedAttributesCheck_RULE_KEY",
+  "scope": "All"
+}
