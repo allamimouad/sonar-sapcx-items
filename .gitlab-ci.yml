@@ -21,7 +21,6 @@ cache:
 .verify: &verify
   stage: test
   script:
-    - 'cd sonar-sapcx-items'
     - 'mvn $MAVEN_CLI_OPTS verify'
 #  except:
 #    - master
