@@ -19,15 +19,15 @@ public enum NodeName {
 
     private String name;
 
-    public String getName() {
-        return name;
-    }
-
     NodeName(String name) {
         this.name = name;
     }
 
-    public boolean isTypeOf(Node node){
+    public String getName() {
+        return name;
+    }
+
+    public boolean isTypeOf(Node node) {
 
         return this.getName().equals(node.getNodeName());
 

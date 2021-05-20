@@ -79,7 +79,7 @@ class SapCxItemsSensorTest {
         FileLinesContextFactory fileLinesContextFactory = mock(FileLinesContextFactory.class);
         when(fileLinesContextFactory.createFor(any(InputFile.class))).thenReturn(mock(FileLinesContext.class));
 
-        sensor = new SapCxItemsSensor(fs, checkFactory, fileLinesContextFactory);
+        sensor = new SapCxItemsSensor(fs, checkFactory);
     }
 
     private DefaultInputFile createInputFile(String name) throws FileNotFoundException {

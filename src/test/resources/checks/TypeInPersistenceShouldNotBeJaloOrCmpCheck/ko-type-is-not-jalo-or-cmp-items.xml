@@ -17,10 +17,12 @@
                         <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="deliveryDelayStock" type="java.lang.Integer">
-                        <persistence type="jalo"/><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
+                        <persistence
+                                type="jalo"/><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
                     </attribute>
                     <attribute qualifier="DeliveryDelayOutSeason" type="java.lang.Integer">
-                        <persistence type="cmp"/><!--  Noncompliant {{The cmp persistence mode is deprecated and must not be used anymore.}} -->
+                        <persistence
+                                type="cmp"/><!--  Noncompliant {{The cmp persistence mode is deprecated and must not be used anymore.}} -->
                     </attribute>
                     <attribute qualifier="deliveryText" type="localized:java.lang.String">
                         <persistence type="property"/>
@@ -37,22 +39,23 @@
                 <description>Extending Employee type</description>
                 <attributes>
                     <attribute qualifier="job" type="localized:java.lang.String">
-                        <persistence type="dynamic" />
+                        <persistence type="dynamic"/>
                     </attribute>
                     <attribute qualifier="email" type="java.lang.String">
-                        <persistence type="jalo" /><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
+                        <persistence
+                                type="jalo"/><!--  Noncompliant {{Use an attribute persistence type of dynamic, instead of jalo.}} -->
                     </attribute>
                     <attribute qualifier="phone" type="java.lang.String">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="mobilePhone" type="java.lang.String">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="orderDisplay" type="SortDisplayEnum">
-                        <persistence type="dynamic" />
+                        <persistence type="dynamic"/>
                     </attribute>
                     <attribute qualifier="managerEmail" type="java.lang.String">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                 </attributes>
             </itemtype>

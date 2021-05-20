@@ -3,8 +3,6 @@ package com.sqli.sapcx.checks;
 import org.junit.jupiter.api.Test;
 import org.sonarsource.analyzer.commons.xml.checks.SonarXmlCheckVerifier;
 
-import java.nio.file.Paths;
-
 class DeploymentTypeCodeCheckTest {
 
     @Test

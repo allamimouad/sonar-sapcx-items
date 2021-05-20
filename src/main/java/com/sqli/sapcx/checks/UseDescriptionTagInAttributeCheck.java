@@ -18,7 +18,7 @@ public class UseDescriptionTagInAttributeCheck extends SimpleXPathBasedCheck {
     public void scanFile(XmlFile file) {
         List<Node> allAttributesWithNoDescription = evaluateAsList(this.allAttributesWithNoDescriptionExpression, file.getDocument());
         allAttributesWithNoDescription
-                .forEach(AttributeWithNoDescriptionNode -> reportIssue(AttributeWithNoDescriptionNode, "Describe the purpose and intended use of an attribute in a description tag."));
+                .forEach(attributeWithNoDescriptionNode -> reportIssue(attributeWithNoDescriptionNode, "Describe the purpose and intended use of an attribute in a description tag."));
     }
 
 }

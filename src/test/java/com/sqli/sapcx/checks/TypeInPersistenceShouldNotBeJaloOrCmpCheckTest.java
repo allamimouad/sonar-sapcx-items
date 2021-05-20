@@ -3,7 +3,7 @@ package com.sqli.sapcx.checks;
 import org.junit.jupiter.api.Test;
 import org.sonarsource.analyzer.commons.xml.checks.SonarXmlCheckVerifier;
 
-public class TypeInPersistenceShouldNotBeJaloOrCmpCheckTest {
+class TypeInPersistenceShouldNotBeJaloOrCmpCheckTest {
 
     @Test
     void typeInPersistenceShouldBeFine() {

@@ -13,6 +13,7 @@ public class CatalogVersionAttributeMustBeUniqueCheck extends SimpleXPathBasedCh
     public static final String RULE_KEY = "CatalogVersionAttributeMustBeUniqueCheck_RULE_KEY";
     private final XPathExpression allCatalogVersionAttrExpression =
             getXPathExpression("//itemtype/attributes/attribute[@type='CatalogVersion']/modifiers[not(@unique) or @unique='false']");
+
     @Override
     public void scanFile(XmlFile file) {
         List<Node> allCatalogVersionAttr = evaluateAsList(this.allCatalogVersionAttrExpression, file.getDocument());

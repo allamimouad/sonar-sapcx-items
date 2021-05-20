@@ -8,17 +8,17 @@
             <attributes>
                 <attribute qualifier="commercialProductName" type="localized:java.lang.String">
                     <description>commercial Product Name</description>
-                    <persistence type="property" />
+                    <persistence type="property"/>
                 </attribute>
                 <attribute qualifier="deliveryDate" type="java.util.Date"><!--  Noncompliant {{Describe the purpose and intended use of an attribute in a description tag.}} -->
                     <persistence type="property"/>
                 </attribute>
                 <attribute qualifier="productDisplayCountries" type="CountryCollection"><!--  Noncompliant {{Describe the purpose and intended use of an attribute in a description tag.}} -->
-                    <persistence type="property" />
+                    <persistence type="property"/>
                 </attribute>
                 <attribute qualifier="distributionChannel" type="DistributionChannelEnum">
                     <description>distribution Channel</description>
-                    <persistence type="property" />
+                    <persistence type="property"/>
                 </attribute>
             </attributes>
         </itemtype>

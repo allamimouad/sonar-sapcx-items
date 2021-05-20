@@ -10,7 +10,6 @@ import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.internal.google.common.annotations.VisibleForTesting;
-import org.sonar.api.measures.FileLinesContextFactory;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -31,15 +30,24 @@ public class SapCxItemsSensor implements Sensor {
     private final Checks<Object> checks;
     private final FileSystem fileSystem;
     private final FilePredicate mainFilesPredicate;
-    private final FileLinesContextFactory fileLinesContextFactory;
 
 
-    public SapCxItemsSensor(FileSystem fileSystem, CheckFactory checkFactory, FileLinesContextFactory fileLinesContextFactory) {
+    public SapCxItemsSensor(FileSystem fileSystem, CheckFactory checkFactory) {
         this.checks = checkFactory.create(SapCxItemsPreperties.REPOSITORY_KEY).addAnnotatedChecks((Iterable<?>) CheckList.getCheckClasses());
         this.fileSystem = fileSystem;
         this.mainFilesPredicate = fileSystem.predicates().and(
                 fileSystem.predicates().matchesPathPattern(SapCxItemsPreperties.SAPCX_ITEMS_SUFFIXES));
-        this.fileLinesContextFactory = fileLinesContextFactory;
+    }
+
+    private static void logFailingRule(RuleKey rule, URI fileLocation, Exception e) {
+        LOG.error(String.format("Unable to execute rule %s on %s", rule, fileLocation), e);
+    }
+
+    private static void reportAnalysisError(Exception e, SensorContext context, InputFile inputFile) {
+        context.newAnalysisError()
+                .onFile(inputFile)
+                .message(e.getMessage())
+                .save();
     }
 
     @Override
@@ -97,10 +105,6 @@ public class SapCxItemsSensor implements Sensor {
         }
     }
 
-    private static void logFailingRule(RuleKey rule, URI fileLocation, Exception e) {
-        LOG.error(String.format("Unable to execute rule %s on %s", rule, fileLocation), e);
-    }
-
     @Override
     public String toString() {
         return getClass().getSimpleName();
@@ -118,13 +122,6 @@ public class SapCxItemsSensor implements Sensor {
 
         LOG.warn(String.format("Unable to analyse file %s;", inputFile.uri()));
         LOG.debug("Cause: {}", e.getMessage());
-    }
-
-    private static void reportAnalysisError(Exception e, SensorContext context, InputFile inputFile) {
-        context.newAnalysisError()
-                .onFile(inputFile)
-                .message(e.getMessage())
-                .save();
     }
 
 }

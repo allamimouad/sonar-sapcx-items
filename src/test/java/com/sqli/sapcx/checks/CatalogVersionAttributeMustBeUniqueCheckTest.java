@@ -3,7 +3,7 @@ package com.sqli.sapcx.checks;
 import org.junit.jupiter.api.Test;
 import org.sonarsource.analyzer.commons.xml.checks.SonarXmlCheckVerifier;
 
-public class CatalogVersionAttributeMustBeUniqueCheckTest {
+class CatalogVersionAttributeMustBeUniqueCheckTest {
     @Test
     void catalogVersionAttributeMustBeUniqueShouldBeFine() {
         SonarXmlCheckVerifier.verifyNoIssue("ok-catalogVersion-aware-items.xml", new CatalogVersionAttributeMustBeUniqueCheck());

@@ -27,7 +27,7 @@ public class TypeInPersistenceShouldNotBeJaloOrCmpCheck extends SimpleXPathBased
 
     }
 
-    public void reportDeprecatedType(Attr typeAttribute){
+    public void reportDeprecatedType(Attr typeAttribute) {
 
         String typeAttributeValue = typeAttribute.getValue();
 

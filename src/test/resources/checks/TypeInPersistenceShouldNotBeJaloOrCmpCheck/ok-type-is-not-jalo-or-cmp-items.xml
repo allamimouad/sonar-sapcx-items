@@ -37,22 +37,22 @@
                 <description>Extending Employee type</description>
                 <attributes>
                     <attribute qualifier="job" type="localized:java.lang.String">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="email" type="java.lang.String">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="phone" type="java.lang.String">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="mobilePhone" type="java.lang.String">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="orderDisplay" type="SortDisplayEnum">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="managerEmail" type="java.lang.String">
-                        <persistence type="property" />
+                        <persistence type="property"/>
                     </attribute>
                 </attributes>
             </itemtype>

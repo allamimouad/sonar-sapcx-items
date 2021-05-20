@@ -1,4 +1,5 @@
 package com.sqli.sapcx.checks;
+
 import org.sonar.check.Rule;
 import org.sonarsource.analyzer.commons.xml.XmlFile;
 import org.sonarsource.analyzer.commons.xml.checks.SimpleXPathBasedCheck;

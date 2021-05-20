@@ -6,7 +6,8 @@
 
     <relations>
         <relation code="B2BUnit2Owners" localized="false" autocreate="true" generate="true">
-            <deployment table="b2bunit2Owners" typecode="335"/> <!--  Noncompliant {{Deployment type codes must be greater than 10000.}} -->
+            <deployment table="b2bunit2Owners"
+                        typecode="335"/> <!--  Noncompliant {{Deployment type codes must be greater than 10000.}} -->
             <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set"/>
             <targetElement type="B2BCustomer" qualifier="owners" cardinality="many" collectiontype="set"/>
         </relation>
@@ -14,7 +15,8 @@
     <itemtypes>
         <typegroup name="CustomItems">
             <itemtype code="Activity" jaloclass="com.soufflet.farmi.shop.core.jalo.Activity">
-                <deployment table="activity" typecode="234"/> <!--  Noncompliant {{Deployment type codes must be greater than 10000.}} -->
+                <deployment table="activity"
+                            typecode="234"/> <!--  Noncompliant {{Deployment type codes must be greater than 10000.}} -->
                 <attributes>
                     <attribute qualifier="code" type="java.lang.String">
                         <persistence type="property"/>
