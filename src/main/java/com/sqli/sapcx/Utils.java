@@ -1,17 +1,8 @@
-
 package com.sqli.sapcx;
 
-import com.sqli.sapcx.types.AttributeName;
-import com.sqli.sapcx.types.NodeName;
 import org.sonarsource.analyzer.commons.xml.XmlFile;
 import org.sonarsource.analyzer.commons.xml.XmlTextRange;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Utils {
     private Utils() {

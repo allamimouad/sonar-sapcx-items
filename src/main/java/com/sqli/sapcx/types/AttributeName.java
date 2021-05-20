@@ -8,17 +8,17 @@ public enum AttributeName {
     TYPECODE("typecode");
 
 
+    private String name;
+
     AttributeName(String name) {
         this.name = name;
     }
-
-    private String name;
 
     public String getName() {
         return name;
     }
 
-    public boolean isTypeOf(Node node){
+    public boolean isTypeOf(Node node) {
 
         return this.getName().equals(node.getNodeName());
 

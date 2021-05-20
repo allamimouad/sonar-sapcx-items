@@ -2,7 +2,7 @@
 <!--
  Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 -->
-<items >
+<items>
     <relations>
         <relation code="Commune2PostalCode" localized="false" autocreate="true" generate="true">
             <deployment table="commune2PostalCode" typecode="10334"/>
@@ -17,7 +17,8 @@
             <sourceElement type="Warehouse" qualifier="warehouse" cardinality="one">
                 <modifiers optional="false" unique="true"/>
             </sourceElement>
-            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many" collectiontype="set">
+            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many"
+                           collectiontype="set">
                 <modifiers partof="true"/>
             </targetElement>
         </relation>
@@ -25,7 +26,9 @@
             <sourceElement type="FarmiCommune" qualifier="commune" cardinality="one">
                 <modifiers optional="false" unique="true"/>
             </sourceElement>
-            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many" collectiontype="set" ordered="true"><!--  Noncompliant {{Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.}} -->
+            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many"
+                           collectiontype="set"
+                           ordered="true"><!--  Noncompliant {{Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.}} -->
                 <modifiers partof="true"/>
             </targetElement>
         </relation>
@@ -41,14 +44,17 @@
             <sourceElement type="Activity" qualifier="activity" cardinality="one">
                 <modifiers optional="false" unique="true"/>
             </sourceElement>
-            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many" collectiontype="set">
+            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many"
+                           collectiontype="set">
                 <modifiers partof="true"/>
             </targetElement>
         </relation>
         <relation code="B2BUnit2Owners" localized="false" autocreate="true" generate="true">
             <deployment table="b2bunit2Owners" typecode="10335"/>
-            <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set" ordered="true"/><!--  Noncompliant {{Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.}} -->
-            <targetElement type="B2BCustomer" qualifier="owners" cardinality="many" collectiontype="set" ordered="true"/><!--  Noncompliant {{Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.}} -->
+            <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set"
+                           ordered="true"/><!--  Noncompliant {{Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.}} -->
+            <targetElement type="B2BCustomer" qualifier="owners" cardinality="many" collectiontype="set"
+                           ordered="true"/><!--  Noncompliant {{Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.}} -->
         </relation>
         <relation code="B2BUnit2Delegates" localized="false" autocreate="true" generate="true">
             <deployment table="b2bunit2delegates" typecode="10336"/>
@@ -57,17 +63,18 @@
         </relation>
         <relation code="B2BUnit2Contacts" localized="false" autocreate="true" generate="true">
             <deployment table="b2bunit2contacts" typecode="10337"/>
-            <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set" ordered="true"/><!--  Noncompliant {{Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.}} -->
+            <sourceElement type="B2BUnit" navigable="false" cardinality="many" collectiontype="set"
+                           ordered="true"/><!--  Noncompliant {{Avoid setting ordered='true' on any side of a relation that has cardinality='many' unless absolutely necessary.}} -->
             <targetElement type="Employee" qualifier="contacts" cardinality="many" collectiontype="set"/>
         </relation>
         <relation code="Unit2Employee" localized="false">
             <sourceElement type="B2BUnit" qualifier="b2bUnit"
                            cardinality="many">
-                <modifiers read="true" write="true" search="true" />
+                <modifiers read="true" write="true" search="true"/>
             </sourceElement>
             <targetElement type="Employee" cardinality="one" qualifier="managerAccount" ordered="true">
                 <description>Employee-Account Manager associated to a Parent B2BUnit</description>
-                <modifiers read="true" write="true" search="true" />
+                <modifiers read="true" write="true" search="true"/>
             </targetElement>
         </relation>
     </relations>

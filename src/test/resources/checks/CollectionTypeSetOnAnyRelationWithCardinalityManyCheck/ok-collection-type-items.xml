@@ -18,7 +18,8 @@
             <sourceElement qualifier="members" type="Principal" collectiontype="set" cardinality="many" ordered="false">
                 <modifiers read="true" write="true" search="true" optional="true"/>
             </sourceElement>
-            <targetElement qualifier="groups" type="PrincipalGroup" collectiontype="set" cardinality="many" ordered="false">
+            <targetElement qualifier="groups" type="PrincipalGroup" collectiontype="set" cardinality="many"
+                           ordered="false">
                 <modifiers read="true" write="true" search="true" optional="true"/>
             </targetElement>
         </relation>

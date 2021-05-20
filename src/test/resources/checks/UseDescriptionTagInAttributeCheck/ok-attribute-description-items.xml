@@ -8,11 +8,11 @@
             <attributes>
                 <attribute qualifier="commercialProductName" type="localized:java.lang.String">
                     <description>commercial Product Name</description>
-                    <persistence type="property" />
+                    <persistence type="property"/>
                 </attribute>
                 <attribute qualifier="distributionChannel" type="DistributionChannelEnum">
                     <description>distribution Channel</description>
-                    <persistence type="property" />
+                    <persistence type="property"/>
                 </attribute>
             </attributes>
         </itemtype>

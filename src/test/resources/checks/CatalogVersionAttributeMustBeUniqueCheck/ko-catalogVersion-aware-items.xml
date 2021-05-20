@@ -51,7 +51,7 @@
                     <modifiers optional="false" unique="true"/>
                 </attribute>
                 <attribute qualifier="catalogVersion" type="CatalogVersion">
-                    <modifiers optional="false" /><!--  Noncompliant {{Mark CatalogVersion attributes as unique for Catalog aware types.}} -->
+                    <modifiers optional="false"/><!--  Noncompliant {{Mark CatalogVersion attributes as unique for Catalog aware types.}} -->
                     <persistence type="property"/>
                 </attribute>
             </attributes>

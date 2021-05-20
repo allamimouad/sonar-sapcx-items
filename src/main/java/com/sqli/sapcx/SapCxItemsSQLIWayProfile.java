@@ -1,13 +1,9 @@
 package com.sqli.sapcx;
 
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
-import org.sonar.api.utils.log.Logger;
-import org.sonar.api.utils.log.Loggers;
 import org.sonarsource.analyzer.commons.BuiltInQualityProfileJsonLoader;
 
 public final class SapCxItemsSQLIWayProfile implements BuiltInQualityProfilesDefinition {
-
-    private static final Logger LOG = Loggers.get(SapCxItemsSensor.class);
 
     @Override
     public void define(Context context) {

@@ -18,7 +18,8 @@
             <sourceElement type="FarmiCommune" qualifier="commune" cardinality="one">
                 <modifiers optional="false" unique="true"/>
             </sourceElement>
-            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many" collectiontype="set">
+            <targetElement type="FarmiFavoriteWarehouse" qualifier="favoriteWarehouses" cardinality="many"
+                           collectiontype="set">
                 <modifiers partof="true"/>
             </targetElement>
         </relation>

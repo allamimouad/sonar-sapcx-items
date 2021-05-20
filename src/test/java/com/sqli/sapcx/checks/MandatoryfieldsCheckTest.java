@@ -3,7 +3,7 @@ package com.sqli.sapcx.checks;
 import org.junit.jupiter.api.Test;
 import org.sonarsource.analyzer.commons.xml.checks.SonarXmlCheckVerifier;
 
-public class MandatoryfieldsCheckTest {
+class MandatoryfieldsCheckTest {
     @Test
     void mandatoryfieldsMusthaveTrueInitialOrDefaultValueShouldBeFine() {
         SonarXmlCheckVerifier.verifyNoIssue("ok-mandatory-fields-items.xml", new MandatoryfieldsCheck());

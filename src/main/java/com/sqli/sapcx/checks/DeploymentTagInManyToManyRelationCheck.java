@@ -14,10 +14,10 @@ public class DeploymentTagInManyToManyRelationCheck extends SimpleXPathBasedChec
     public static final String RULE_KEY = "DeploymentTagInManyToManyRelationCheck_RULE_KEY";
 
     private final XPathExpression allManyToManyRelationWithNoDeploymentExpression = getXPathExpression(
-                                                                                            ".//relation[./sourceElement[@cardinality='many'] "
-                                                                                            + "and ./targetElement[@cardinality='many'] "
-                                                                                            + "and not(./deployment)]"
-                                                                                            );
+            ".//relation[./sourceElement[@cardinality='many'] "
+                    + "and ./targetElement[@cardinality='many'] "
+                    + "and not(./deployment)]"
+    );
 
     @Override
     public void scanFile(XmlFile xmlFile) {

@@ -2,7 +2,7 @@
 <!--
  Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 -->
-<items >
+<items>
 
     <itemtypes>
 
@@ -10,18 +10,19 @@
             <attributes>
                 <attribute qualifier="venue" type="java.lang.String">
                     <description>venue of concert</description>
-                    <modifiers read="true" write="true" dontOptimize="true" /><!--  Noncompliant {{Do not use unoptimized attributes.}} -->
-                    <persistence type="property" />
+                    <modifiers read="true" write="true"
+                               dontOptimize="true"/><!--  Noncompliant {{Do not use unoptimized attributes.}} -->
+                    <persistence type="property"/>
                 </attribute>
                 <attribute qualifier="date" type="java.util.Date">
                     <description>date of concert</description>
-                    <modifiers read="true" write="true" dontOptimize="false" />
-                    <persistence type="property" />
+                    <modifiers read="true" write="true" dontOptimize="false"/>
+                    <persistence type="property"/>
                 </attribute>
                 <attribute qualifier="concertType" type="ConcertType">
                     <description>type of concert (indoors or open air)</description>
-                    <modifiers read="true" write="true" />
-                    <persistence type="property" />
+                    <modifiers read="true" write="true"/>
+                    <persistence type="property"/>
                 </attribute>
             </attributes>
         </itemtype>
@@ -30,7 +31,7 @@
             <attributes>
                 <attribute qualifier="hashtag" type="java.lang.String">
                     <description>hashtag of concert tour for social media</description>
-                    <persistence type="property" />
+                    <persistence type="property"/>
                 </attribute>
             </attributes>
         </itemtype>

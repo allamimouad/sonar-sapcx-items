@@ -1,4 +1,5 @@
 package com.sqli.sapcx.checks;
+
 import org.sonar.check.Rule;
 import org.sonarsource.analyzer.commons.xml.XmlFile;
 import org.sonarsource.analyzer.commons.xml.checks.SimpleXPathBasedCheck;
@@ -14,6 +15,7 @@ public class QualifierShouldStartWithLowerCaseCheck extends SimpleXPathBasedChec
 
     private final XPathExpression allQualifiersExpression =
             getXPathExpression("(//relation/sourceElement | // targetElement | //itemtype/attributes/attribute)/@qualifier");
+
     @Override
     public void scanFile(XmlFile file) {
         List<Node> allQualifiers = evaluateAsList(this.allQualifiersExpression, file.getDocument());
@@ -22,12 +24,13 @@ public class QualifierShouldStartWithLowerCaseCheck extends SimpleXPathBasedChec
                 .filter(this::isInvalidQualifier)
                 .forEach(this::reportInvalidQualifier);
     }
+
     private void reportInvalidQualifier(Attr invalidQualifier) {
         reportIssue(invalidQualifier, "Qualifier value should start with lower case letter.");
     }
 
     private boolean isInvalidQualifier(Attr qualifier) {
-        final char firstLetterOfQualifier=qualifier.getValue().charAt(0);
+        final char firstLetterOfQualifier = qualifier.getValue().charAt(0);
         return (Character.isUpperCase(firstLetterOfQualifier));
     }
 

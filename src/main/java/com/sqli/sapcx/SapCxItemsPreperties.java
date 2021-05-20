@@ -17,4 +17,7 @@ public class SapCxItemsPreperties {
     public static final String SONAR_WAY_SAPCX_ITEMS_PATH = "com/sqli/l10n/sapcx/rules/items/Sonar_way_sapcx_items_profile.json";
 
     public static final String XML_SONAR_WAY = "Sonar way";
+
+    private SapCxItemsPreperties() {
+    }
 }

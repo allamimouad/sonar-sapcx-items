@@ -9,7 +9,7 @@ import javax.xml.xpath.XPathExpression;
 import java.util.List;
 
 @Rule(key = CollectionTypeSetOnAnyRelationWithCardinalityManyCheck.RULE_KEY)
-public class CollectionTypeSetOnAnyRelationWithCardinalityManyCheck  extends SimpleXPathBasedCheck {
+public class CollectionTypeSetOnAnyRelationWithCardinalityManyCheck extends SimpleXPathBasedCheck {
     public static final String RULE_KEY = "CollectionTypeSetOnAnyRelationWithCardinalityManyCheck_RULE_KEY";
 
     // note : default of collectiontype is 'collection'
