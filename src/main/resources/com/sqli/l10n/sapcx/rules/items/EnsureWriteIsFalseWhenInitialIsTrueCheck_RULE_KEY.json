@@ -1,0 +1,17 @@
+{
+  "title": "Ensure immutable fields (where write='false') have initial set to true.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Major",
+  "ruleSpecification": "RSPEC-EnsureWriteIsFalseWhenInitialIsTrueCheck_RULE_KEY",
+  "sqKey": "EnsureWriteIsFalseWhenInitialIsTrueCheck_RULE_KEY",
+  "scope": "All"
+}

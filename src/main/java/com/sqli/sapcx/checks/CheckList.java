@@ -10,6 +10,7 @@ public class CheckList {
 
     public static List<Class<?>> getCheckClasses() {
         return Arrays.asList(
+                EnsureWriteIsFalseWhenInitialIsTrueCheck.class,
                 BooleanAttributesAsMandatoryCheck.class,
                 DoNotUseUnoptimizedAttributesCheck.class,
                 DeploymentTagInManyToManyRelationCheck.class,
