@@ -33,10 +33,11 @@ public class SapCxItemsSensor implements Sensor {
 
 
     public SapCxItemsSensor(FileSystem fileSystem, CheckFactory checkFactory) {
-        this.checks = checkFactory.create(SapCxItemsPreperties.REPOSITORY_KEY).addAnnotatedChecks((Iterable<?>) CheckList.getCheckClasses());
+        this.checks = checkFactory.create(SapCxItemsPreperties.REPOSITORY_KEY)
+                                  .addAnnotatedChecks((Iterable<?>) CheckList.getCheckClasses());
         this.fileSystem = fileSystem;
-        this.mainFilesPredicate = fileSystem.predicates().and(
-                fileSystem.predicates().matchesPathPattern(SapCxItemsPreperties.SAPCX_ITEMS_SUFFIXES));
+        this.mainFilesPredicate = fileSystem.predicates()
+                .and(fileSystem.predicates().matchesPathPattern(SapCxItemsPreperties.SAPCX_ITEMS_SUFFIXES));
     }
 
     private static void logFailingRule(RuleKey rule, URI fileLocation, Exception e) {
@@ -103,11 +104,6 @@ public class SapCxItemsSensor implements Sensor {
         } catch (Exception e) {
             logFailingRule(ruleKey, newXmlFile.getInputFile().uri(), e);
         }
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName();
     }
 
     @Override
