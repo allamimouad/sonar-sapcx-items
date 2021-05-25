@@ -14,6 +14,7 @@
     "MandatoryfieldsCheckCheck_RULE_KEY",
     "CatalogVersionAttributeMustBeUniqueCheck_RULE_KEY",
     "CodeShouldStartWithUpperCaseLetterCheck_RULE_KEY",
-    "QualifierShouldStartWithLowerCaseCheck_RULE_KEY"
+    "QualifierShouldStartWithLowerCaseCheck_RULE_KEY",
+    "UniqueKeyAttributeQualifierCheck_RULE_KEY"
   ]
 }
