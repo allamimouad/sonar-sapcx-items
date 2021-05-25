@@ -1,0 +1,17 @@
+{
+  "title": "Ensure unique attributes match the catalog unique attribute key, uniqueKeyAttributeQualifier.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Major",
+  "ruleSpecification": "RSPEC-UniqueKeyAttributeQualifierCheck_RULE_KEY",
+  "sqKey": "UniqueKeyAttributeQualifierCheck_RULE_KEY",
+  "scope": "All"
+}

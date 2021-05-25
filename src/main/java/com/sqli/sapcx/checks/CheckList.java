@@ -23,7 +23,8 @@ public class CheckList {
                 CodeShouldNotStartWithGeneratedCheck.class,
                 CatalogVersionAttributeMustBeUniqueCheck.class,
                 CodeShouldStartWithUpperCaseLetterCheck.class,
-                QualifierShouldStartWithLowerCaseCheck.class
+                QualifierShouldStartWithLowerCaseCheck.class,
+                UniqueKeyAttributeQualifierCheck.class
         );
     }
 

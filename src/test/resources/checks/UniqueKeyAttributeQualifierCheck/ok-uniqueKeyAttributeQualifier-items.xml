@@ -1,0 +1,33 @@
+<itemtype code="MyCatalogType" extends="GenericItem"
+          autocreate="true" generate="true">
+    <deployment table="MyCatalogType" typecode="XXXX"/>
+    <custom-properties>
+        <property name="catalogItemType">
+            <value>java.lang.Boolean.TRUE</value>
+        </property>
+        <property name="catalogVersionAttributeQualifier">
+            <value>"catalogVersion"</value>
+        </property>
+        <property name="uniqueKeyAttributeQualifier">
+            <value>"uid,uid1,uid2"</value>
+        </property>
+    </custom-properties>
+    <attributes>
+        <attribute qualifier="uid" generate="true" autocreate="true" type="java.lang.String">
+            <persistence type="property"/>
+            <modifiers optional="false" unique="true"/>
+        </attribute>
+        <attribute qualifier="uid1" generate="true" autocreate="true" type="java.lang.String">
+            <persistence type="property"/>
+            <modifiers optional="false" unique="true"/>
+        </attribute>
+        <attribute qualifier="uid2" generate="true" autocreate="true" type="java.lang.String">
+            <persistence type="property"/>
+            <modifiers optional="false" unique="true"/>
+        </attribute>
+        <attribute qualifier="catalogVersion" type="CatalogVersion">
+            <modifiers optional="false" unique="true"/>
+            <persistence type="property"/>
+        </attribute>
+    </attributes>
+</itemtype>
