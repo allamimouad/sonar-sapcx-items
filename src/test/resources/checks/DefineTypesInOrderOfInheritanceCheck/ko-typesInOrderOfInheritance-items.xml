@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<items>
+    <itemtype code="User" extends="Principal" jaloclass="de.hybris.platform.jalo.user.User"  autocreate="true" generate="true" /><!--  Noncompliant {{Define types in order of inheritance.}} -->
+
+    <itemtype code="Principal"
+              extends="GenericItem"
+              jaloclass="de.hybris.platform.jalo.security.Principal"
+              autocreate="true"
+              abstract="true"
+              generate="true"/>
+
+    <itemtype code="Customer" extends="User"
+              jaloclass="de.hybris.platform.jalo.user.Customer"
+              autocreate="true"
+              generate="true"/>
+</items>
+
+
+

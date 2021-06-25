@@ -24,7 +24,8 @@ public class CheckList {
                 CatalogVersionAttributeMustBeUniqueCheck.class,
                 CodeShouldStartWithUpperCaseLetterCheck.class,
                 QualifierShouldStartWithLowerCaseCheck.class,
-                UniqueKeyAttributeQualifierCheck.class
+                UniqueKeyAttributeQualifierCheck.class,
+                DefineTypesInOrderOfInheritanceCheck.class
         );
     }
 

@@ -1,0 +1,17 @@
+{
+  "title": "Define types in order of inheritance.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "hybris",
+    "convention"
+  ],
+  "defaultSeverity": "Critical",
+  "ruleSpecification": "RSPEC-DefineTypesInOrderOfInheritanceCheck_RULE_KEY",
+  "sqKey": "DefineTypesInOrderOfInheritanceCheck_RULE_KEY",
+  "scope": "All"
+}
